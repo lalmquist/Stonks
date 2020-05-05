@@ -5,19 +5,19 @@ using TMPro;
 
 public class StockPrice : MonoBehaviour
 {
-
     float interval;
     float stock_price = 0;
 
-    [SerializeField] float targetTime;
+    [SerializeField] float stockUpdateTimer;
     [SerializeField] TextMeshProUGUI stockPrice;
+    [SerializeField] float priceVariation = 10f;
 
 
     // Start is called before the first frame update
     void Start()
     {
         stockPrice.text = "145";
-        interval = targetTime;
+        interval = stockUpdateTimer;
     }
 
     // Update is called once per frame
@@ -35,11 +35,11 @@ public class StockPrice : MonoBehaviour
     void timerEnded()
     {
         float.TryParse(stockPrice.text, out stock_price);
-        stock_price = stock_price + Random.Range(-10.0f, 10.0f);
+        stock_price = stock_price + Random.Range(-priceVariation, priceVariation);
 
-        stockPrice.text = stock_price.ToString();
+        stockPrice.text = stock_price.ToString("#.00");
 
-        interval = targetTime;
+        interval = stockUpdateTimer;
 
     }
 }

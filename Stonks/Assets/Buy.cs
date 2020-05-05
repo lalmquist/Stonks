@@ -44,7 +44,7 @@ public class Buy : MonoBehaviour
         {
             money = money - (shares * price);
 
-            playerMoney.text = money.ToString();
+            playerMoney.text = money.ToString("#.00");
 
             shares_owned = shares_owned + shares;
 

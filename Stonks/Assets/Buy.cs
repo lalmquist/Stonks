@@ -21,6 +21,7 @@ public class Buy : MonoBehaviour
     void Start()
     {
         SharesOwned.text = "0";
+        
     }
 
     // Update is called once per frame
@@ -36,9 +37,15 @@ public class Buy : MonoBehaviour
         float.TryParse(playerMoney.text, out money);
         int.TryParse(SharesOwned.text, out shares_owned);
 
+        GameObject gameData = GameObject.Find("GameData");
+        GameData game_data = gameData.GetComponent<GameData>();
+
         bufferMoney = money;
 
         bufferMoney = money - (shares * price);
+
+        game_data.pricePaid = shares * price;
+
 
         if (bufferMoney >= 0)
         {

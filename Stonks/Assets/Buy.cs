@@ -13,14 +13,11 @@ public class Buy : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI quantity;
     [SerializeField] TextMeshProUGUI stock;
-    [SerializeField] TextMeshProUGUI playerMoney;
-    [SerializeField] TextMeshProUGUI SharesOwned;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        SharesOwned.text = "0";
         
     }
 
@@ -34,28 +31,29 @@ public class Buy : MonoBehaviour
     {
         int.TryParse(quantity.text, out shares);
         float.TryParse(stock.text, out price);
-        float.TryParse(playerMoney.text, out money);
-        int.TryParse(SharesOwned.text, out shares_owned);
 
         GameObject gameData = GameObject.Find("GameData");
         GameData game_data = gameData.GetComponent<GameData>();
+
+        money = game_data.playerMoney;
 
         bufferMoney = money;
 
         bufferMoney = money - (shares * price);
 
-        game_data.pricePaid = shares * price;
-
-
         if (bufferMoney >= 0)
         {
             money = money - (shares * price);
 
-            playerMoney.text = money.ToString("#.00");
+            game_data.playerMoney = money;
+
+            shares_owned = game_data.Stock1.sharesOwned;
 
             shares_owned = shares_owned + shares;
 
-            SharesOwned.text = shares_owned.ToString();
+            game_data.Stock1.sharesOwned = shares_owned;
+
+            game_data.pricePaid = shares * price;
 
             quantity.text = "0";
         }

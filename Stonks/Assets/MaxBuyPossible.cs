@@ -11,11 +11,12 @@ public class MaxBuyPossible : MonoBehaviour
     int maxbuy_int;
     float maxbuy_float;
 
-    [SerializeField] TextMeshProUGUI self;
+    TextMeshProUGUI textMesh;
 
     // Start is called before the first frame update
     void Start()
     {
+        textMesh = GetComponent<TextMeshProUGUI>();
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
     }
@@ -27,6 +28,6 @@ public class MaxBuyPossible : MonoBehaviour
 
         maxbuy_int = Mathf.FloorToInt(maxbuy_float);
 
-        self.text = maxbuy_int.ToString();
+        textMesh.text = maxbuy_int.ToString();
     }
 }

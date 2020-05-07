@@ -5,7 +5,7 @@ using TMPro;
 
 public class SharesOwned : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI self;
+    TextMeshProUGUI textMesh;
 
     GameObject gameData;
     GameData game_data;
@@ -17,6 +17,7 @@ public class SharesOwned : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        textMesh = GetComponent<TextMeshProUGUI>();
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
     }
@@ -24,7 +25,7 @@ public class SharesOwned : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        self.text = game_data.Stock1.sharesOwned.ToString();
+        textMesh.text = game_data.Stock1.sharesOwned.ToString();
 
     }
 }

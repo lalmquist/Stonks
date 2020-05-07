@@ -7,18 +7,20 @@ public class StockPrice : MonoBehaviour
 {
     float interval;
     float stock_price = 0;
+    float price_buffer;
 
     GameObject gameData;
     GameData game_data;
 
-    [SerializeField] float stockUpdateTimer;
-    [SerializeField] TextMeshProUGUI stockPrice;
+    [SerializeField] float stockUpdateTimer = 10f;
+    TextMeshProUGUI textMesh;
     [SerializeField] float priceVariation = 10f;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        textMesh = GetComponent<TextMeshProUGUI>();
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
         interval = stockUpdateTimer;
@@ -31,7 +33,7 @@ public class StockPrice : MonoBehaviour
 
         stock_price = game_data.Stock1.price;
 
-        stockPrice.text = "$" + stock_price.ToString("#.00");
+        textMesh.text = "$" + stock_price.ToString("#.00");
 
         if (interval <= 0.0f)
         {
@@ -49,6 +51,17 @@ public class StockPrice : MonoBehaviour
         game_data.Stock1.price = stock_price;
 
         interval = stockUpdateTimer;
+
+        if (stock_price >= price_buffer)
+        {
+            textMesh.color = new Color32(0, 255, 0, 255);
+        }
+        else
+        {
+            textMesh.color = new Color32(255, 0, 0, 255);
+        }
+
+        price_buffer = stock_price;
 
     }
 }

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MaxBuyPossible : MonoBehaviour
+public class SharesOwned : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI self;
+
     GameObject gameData;
     GameData game_data;
 
-    int maxbuy_int;
-    float maxbuy_float;
+    float possibleSell;
+    float netDifference;
 
-    [SerializeField] TextMeshProUGUI self;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +24,7 @@ public class MaxBuyPossible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        maxbuy_float = game_data.playerMoney / game_data.Stock1.price;
+        self.text = game_data.Stock1.sharesOwned.ToString();
 
-        maxbuy_int = Mathf.FloorToInt(maxbuy_float);
-
-        self.text = maxbuy_int.ToString();
     }
 }

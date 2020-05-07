@@ -11,15 +11,15 @@ public class Sell : MonoBehaviour
     int shares_owned = 0;
 
     [SerializeField] TextMeshProUGUI quantity;
-    [SerializeField] TextMeshProUGUI stock;
-    [SerializeField] TextMeshProUGUI playerMoney;
-    [SerializeField] TextMeshProUGUI SharesOwned;
 
+    GameObject gameData;
+    GameData game_data;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gameData = GameObject.Find("GameData");
+        game_data = gameData.GetComponent<GameData>();
     }
 
     // Update is called once per frame
@@ -31,19 +31,25 @@ public class Sell : MonoBehaviour
     public void execute()
     {
         int.TryParse(quantity.text, out shares);
-        float.TryParse(stock.text, out price);
-        float.TryParse(playerMoney.text, out money);
-        int.TryParse(SharesOwned.text, out shares_owned);
+
+        price = game_data.Stock1.price;
+
+        money = game_data.playerMoney;
+
+        shares_owned = game_data.Stock1.sharesOwned;
+
 
         if (shares_owned >= shares)
         {
             money = money + (shares * price);
 
-            playerMoney.text = money.ToString("#.00");
+            game_data.playerMoney = money;
+
+            game_data.Stock1.pricePaidForShares = game_data.Stock1.pricePaidForShares - (game_data.Stock1.pricePaidForShares * ((float)shares / (float)shares_owned));
 
             shares_owned = shares_owned - shares;
 
-            SharesOwned.text = shares_owned.ToString();
+            game_data.Stock1.sharesOwned = shares_owned;
 
             quantity.text = "0";
         }

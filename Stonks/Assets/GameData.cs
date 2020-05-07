@@ -9,10 +9,9 @@ public class GameData : MonoBehaviour
     string saveJSON;
     string readData;
     float moneybuffer = 1f;
+    float pricebuffer;
     bool doneLoad = false;
 
-    [SerializeField] TextMeshProUGUI player_Money;
-    [SerializeField] public float pricePaid;
     [SerializeField] public float playerMoney;
 
     [SerializeField] public Stock Stock1 = new Stock();
@@ -23,6 +22,7 @@ public class GameData : MonoBehaviour
     [System.Serializable]
     public class Stock
     {
+        public float pricePaidForShares;
         public float price;
         public int sharesOwned;
     }
@@ -46,6 +46,7 @@ public class GameData : MonoBehaviour
         LoadData = JsonUtility.FromJson<JSONFileData>(readData);
         Stock1.price = LoadData.stock1.price;
         Stock1.sharesOwned = LoadData.stock1.sharesOwned;
+        Stock1.pricePaidForShares = LoadData.stock1.pricePaidForShares;
         playerMoney = LoadData.playerMoney;
         doneLoad = true;
     }
@@ -69,13 +70,15 @@ public class GameData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((moneybuffer != playerMoney) && (doneLoad == true))
+        if (((moneybuffer != playerMoney) || (Stock1.price != pricebuffer)) && (doneLoad == true))
         {
 
             moneybuffer = playerMoney;
+            pricebuffer = Stock1.price;
             SaveData.playerMoney = moneybuffer;
             SaveData.stock1.price = Stock1.price;
             SaveData.stock1.sharesOwned = Stock1.sharesOwned;
+            SaveData.stock1.pricePaidForShares = Stock1.pricePaidForShares;
             SaveJSON();
         }
 

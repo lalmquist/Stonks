@@ -12,13 +12,16 @@ public class Buy : MonoBehaviour
     float bufferMoney = 0;
 
     [SerializeField] TextMeshProUGUI quantity;
-    [SerializeField] TextMeshProUGUI stock;
+
+    GameObject gameData;
+    GameData game_data;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameData = GameObject.Find("GameData");
+        game_data = gameData.GetComponent<GameData>();
     }
 
     // Update is called once per frame
@@ -29,11 +32,8 @@ public class Buy : MonoBehaviour
 
     public void execute()
     {
+        price = game_data.Stock1.price;
         int.TryParse(quantity.text, out shares);
-        float.TryParse(stock.text, out price);
-
-        GameObject gameData = GameObject.Find("GameData");
-        GameData game_data = gameData.GetComponent<GameData>();
 
         money = game_data.playerMoney;
 
@@ -53,7 +53,7 @@ public class Buy : MonoBehaviour
 
             game_data.Stock1.sharesOwned = shares_owned;
 
-            game_data.pricePaid = shares * price;
+            game_data.Stock1.pricePaidForShares = game_data.Stock1.pricePaidForShares + (shares * price);
 
             quantity.text = "0";
         }

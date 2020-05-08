@@ -17,6 +17,8 @@ public class FadingText : MonoBehaviour
     float red;
     float green;
     float blue;
+    float xMovement;
+    float yMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class FadingText : MonoBehaviour
     {
         if (timerRunning)
         {
+            transform.Translate(xMovement * Time.deltaTime, 0, 0);
             updateTimer += Time.deltaTime;
             interval -= Time.deltaTime;
 
@@ -72,6 +75,7 @@ public class FadingText : MonoBehaviour
         red = 0;
         green = 255;
         blue = 0;
+        xMovement = 5f;
 
     }
 }

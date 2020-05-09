@@ -32,7 +32,7 @@ public class FadingText : MonoBehaviour
     {
         if (timerRunning)
         {
-            transform.Translate(xMovement * Time.deltaTime, 0, 0);
+            transform.Translate(xMovement * Time.deltaTime, yMovement * Time.deltaTime, 0);
             updateTimer += Time.deltaTime;
             interval -= Time.deltaTime;
 
@@ -56,7 +56,7 @@ public class FadingText : MonoBehaviour
         }
     }
 
-    public void FadeRed()
+    public void FadeRed(string arg)
     {
         timerRunning = true;
         alpha = 255;
@@ -65,9 +65,14 @@ public class FadingText : MonoBehaviour
         green = 0;
         blue = 0;
 
+        xMovement = 1f;
+        yMovement = -4f;
+
+        transform.position = new Vector3(161, 516, 0);
+        textMesh.text = "$" + arg;
     }
 
-    public void FadeGreen()
+    public void FadeGreen(string arg)
     {
         timerRunning = true;
         alpha = 255;
@@ -75,7 +80,11 @@ public class FadingText : MonoBehaviour
         red = 0;
         green = 255;
         blue = 0;
-        xMovement = 5f;
 
+        xMovement = 1f;
+        yMovement = 4f;
+
+        transform.position = new Vector3(161, 506, 0);
+        textMesh.text = "$" + arg;
     }
 }

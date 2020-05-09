@@ -10,6 +10,10 @@ public class Buy : MonoBehaviour
     float money = 0;
     int shares_owned = 0;
     float bufferMoney = 0;
+    string FadeTextArg;
+    float math;
+
+    public FadingText fadeText;
 
     [SerializeField] TextMeshProUGUI quantity;
 
@@ -41,9 +45,13 @@ public class Buy : MonoBehaviour
 
         bufferMoney = money - (shares * price);
 
-        if (bufferMoney >= 0)
+        if (bufferMoney >= 0 && shares >0)
         {
             money = money - (shares * price);
+
+            math = (-shares * price);
+
+            FadeTextArg = math.ToString("#.00");
 
             game_data.playerMoney = money;
 
@@ -54,6 +62,8 @@ public class Buy : MonoBehaviour
             game_data.Stock1.sharesOwned = shares_owned;
 
             game_data.Stock1.pricePaidForShares = game_data.Stock1.pricePaidForShares + (shares * price);
+
+            fadeText.FadeRed(FadeTextArg);
 
             quantity.text = "0";
         }

@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu/MainMenu.unity
+    guid: b70c7ca1b3f6d9f40a9920610379863e
+  - enabled: 1
+    path: Assets/Scenes/Trading/Trading.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Store/Store.unity
+    guid: 11052935675a5ae4e9fa0d9f3aa313bb
+  - enabled: 1
+    path: Assets/Scenes/MoneyPrinter/MoneyPrinter.unity
+    guid: 5c7965134915bd141b23c942cbf8ccb3
   m_configObjects: {}

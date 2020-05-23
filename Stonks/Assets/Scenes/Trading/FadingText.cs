@@ -25,6 +25,7 @@ public class FadingText : MonoBehaviour
     {
         textMesh = GetComponent<TextMeshProUGUI>();
         interval = fadeTime;
+        textMesh.color = new Color32(0, 0, 0, 0);
     }
 
     // Update is called once per frame
@@ -68,7 +69,7 @@ public class FadingText : MonoBehaviour
         xMovement = 1f;
         yMovement = -4f;
 
-        transform.position = new Vector3(161, 516, 0);
+        transform.position = new Vector3(161, 550, 0);
         textMesh.text = "$" + arg;
     }
 
@@ -84,7 +85,7 @@ public class FadingText : MonoBehaviour
         xMovement = 1f;
         yMovement = 4f;
 
-        transform.position = new Vector3(161, 506, 0);
+        transform.position = new Vector3(161, 550, 0);
         textMesh.text = "$" + arg;
     }
 }

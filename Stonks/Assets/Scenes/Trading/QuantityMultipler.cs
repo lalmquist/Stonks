@@ -16,6 +16,10 @@ public class QuantityMultipler : MonoBehaviour
     void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
+        toggle = 0;
+        textMesh.text = "x1";
+        addOne.multiplier = 1;
+        subtractOne.multiplier = addOne.multiplier;
     }
 
     // Update is called once per frame

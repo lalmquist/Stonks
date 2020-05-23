@@ -29,7 +29,7 @@ public class MoneyIfSold : MonoBehaviour
         netDifference = possibleSell - game_data.Stock1.pricePaidForShares;
         if (netDifference > 0)
         {
-            textMesh.text = "$" + netDifference.ToString("#.00");
+            textMesh.text = "$" + netDifference.ToString("n2");
             textMesh.color = new Color32(0, 255, 0, 255);
         }
         else if (netDifference == 0)
@@ -39,7 +39,7 @@ public class MoneyIfSold : MonoBehaviour
         }
         else
         {
-            textMesh.text = "-" + "$" + Mathf.Abs(netDifference).ToString("#.00");
+            textMesh.text = "-" + "$" + Mathf.Abs(netDifference).ToString("n2");
             textMesh.color = new Color32(255, 0, 0, 255);
         }
 

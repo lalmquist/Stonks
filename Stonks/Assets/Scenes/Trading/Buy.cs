@@ -51,7 +51,7 @@ public class Buy : MonoBehaviour
 
             math = (-shares * price);
 
-            FadeTextArg = math.ToString("#.00");
+            FadeTextArg = math.ToString("n2");
 
             game_data.playerMoney = money;
 

@@ -33,7 +33,7 @@ public class StockPrice : MonoBehaviour
 
         stock_price = game_data.Stock1.price;
 
-        textMesh.text = "$" + stock_price.ToString("#.00");
+        textMesh.text = "$" + stock_price.ToString("n2");
 
         if (interval <= 0.0f)
         {

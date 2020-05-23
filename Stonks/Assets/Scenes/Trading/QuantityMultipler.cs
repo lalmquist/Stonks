@@ -6,6 +6,9 @@ using TMPro;
 public class QuantityMultipler : MonoBehaviour
 {
 
+    public AddOne addOne;
+    public SubtractOne subtractOne;
+
     TextMeshProUGUI textMesh;
     int toggle = 0;
 
@@ -35,14 +38,20 @@ public class QuantityMultipler : MonoBehaviour
         if (toggle == 0)
         {
             textMesh.text = "x1";
+            addOne.multiplier = 1;
+            subtractOne.multiplier = addOne.multiplier;
         }
         else if (toggle == 1)
         {
             textMesh.text = "x10";
+            addOne.multiplier = 10;
+            subtractOne.multiplier = addOne.multiplier;
         }
         else if (toggle == 2)
         {
             textMesh.text = "x100";
+            addOne.multiplier = 100;
+            subtractOne.multiplier = addOne.multiplier;
         }
     }
 }

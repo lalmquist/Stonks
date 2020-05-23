@@ -5,6 +5,7 @@ using TMPro;
 
 public class AddOne : MonoBehaviour
 {
+    public int multiplier = 1;
     int value = 0;
     [SerializeField] TextMeshProUGUI valueText;
 
@@ -23,7 +24,7 @@ public class AddOne : MonoBehaviour
     public void execute()
     {
         int.TryParse(valueText.text, out value);
-        value = value + 1;
+        value = value + (1*multiplier);
         valueText.text = value.ToString();
     }
 }

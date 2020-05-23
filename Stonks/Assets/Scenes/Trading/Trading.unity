@@ -1020,6 +1020,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450bce65de6b59d42a5f813a28d5a24a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addOne: {fileID: 1722899755}
+  subtractOne: {fileID: 1722899753}
 --- !u!1 &1053516193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,6 +2346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3325f76485df8429570ccd4e777dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplier: 1
   valueText: {fileID: 1722899751}
 --- !u!23 &1722899754
 MeshRenderer:
@@ -2397,6 +2400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cba5f159146454590a41e1ee70242f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplier: 1
   valueText: {fileID: 1722899751}
 --- !u!1 &1766695730
 GameObject:

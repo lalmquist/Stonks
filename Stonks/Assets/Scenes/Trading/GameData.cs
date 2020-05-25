@@ -19,6 +19,8 @@ public class GameData : MonoBehaviour
     [SerializeField] public Stock Stock3 = new Stock();
     [SerializeField] public Stock Stock4 = new Stock();
 
+    [SerializeField] public Store store = new Store();
+
     [SerializeField] JSONFileData SaveData = new JSONFileData();
     [SerializeField] JSONFileData LoadData = new JSONFileData();
 
@@ -38,6 +40,14 @@ public class GameData : MonoBehaviour
         public Stock stock2;
         public Stock stock3;
         public Stock stock4;
+        public Store store;
+    }
+
+    [System.Serializable]
+    public class Store
+    {
+        public bool quantityButton;
+        public bool dualMonitors;
     }
 
     public void SaveJSON()
@@ -66,6 +76,8 @@ public class GameData : MonoBehaviour
         Stock4.price = LoadData.stock4.price;
         Stock4.sharesOwned = LoadData.stock4.sharesOwned;
         Stock4.pricePaidForShares = LoadData.stock4.pricePaidForShares;
+
+        store = LoadData.store;
 
         playerMoney = LoadData.playerMoney;
         doneLoad = true;
@@ -112,6 +124,8 @@ public class GameData : MonoBehaviour
             SaveData.stock4.price = Stock4.price;
             SaveData.stock4.sharesOwned = Stock4.sharesOwned;
             SaveData.stock4.pricePaidForShares = Stock4.pricePaidForShares;
+
+            SaveData.store = store;
 
             SaveJSON();
         }

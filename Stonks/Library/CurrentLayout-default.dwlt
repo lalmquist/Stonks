@@ -73,7 +73,7 @@ MonoBehaviour:
   m_MinSize: {x: 887, y: 494}
   m_MaxSize: {x: 16012, y: 14044}
   vertical: 0
-  controlID: 143
+  controlID: 75
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -363,20 +363,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/MainMenu
+    - Assets/Scenes/Trading
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/MainMenu
+  - Assets/Scenes/Trading
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity\Stonks\Stonks\Stonks
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 3}
-    m_SelectedIDs: e02e0000
-    m_LastClickedID: 12000
-    m_ExpandedIDs: 00000000842d0000142e0000742e000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 1a2f0000
+    m_LastClickedID: 12058
+    m_ExpandedIDs: 00000000762d0000662e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -404,7 +404,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000842d0000
+    m_ExpandedIDs: 00000000762d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -497,7 +497,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 148
+  m_LastVerticalScrollValue: 224
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -527,23 +527,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: fae8ffff36e9ffff06ebffff6aebffff3aecffffa8edffffcceeffff26f1ffff3cf3ffff72f4ffffd8f4ffff14f6ffffd4f6ffff0ef8ffff6cf8ffffa4f8ffff6afbffffe03d0000fa3d0000544000006e400000d8420000f2420000d6440000
+      m_SelectedIDs: 62ddffff
+      m_LastClickedID: -8862
+      m_ExpandedIDs: 78e7ffff96e9ffff98e9fffffcedffff00f5ffff58f6fffff6f6ffff1af8ffff7af9ffff02faffff72fbffff62320000923200009e320000663300002e38000048380000263a0000483a0000904c00009a4c0000aa4c0000d24c0000884d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Main Camera
+        m_OriginalName: Main Camera
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 14920
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -589,9 +589,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 205.52043, y: 361.406, z: 66.75}
+    m_Target: {x: 188.31235, y: 256.1026, z: 5.560381}
     speed: 2
-    m_Value: {x: 205.52043, y: 361.406, z: 66.75}
+    m_Value: {x: 188.31235, y: 256.1026, z: 5.560381}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -624,9 +624,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 600.1319
+    m_Target: 481.29813
     speed: 2
-    m_Value: 600.1319
+    m_Value: 481.29813
   m_Ortho:
     m_Target: 1
     speed: 2

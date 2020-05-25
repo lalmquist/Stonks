@@ -12,6 +12,7 @@ public class SharesOwned : MonoBehaviour
 
     float possibleSell;
     float netDifference;
+    public Number stockNumber;
 
 
     // Start is called before the first frame update
@@ -25,7 +26,21 @@ public class SharesOwned : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMesh.text = game_data.Stock1.sharesOwned.ToString();
-
+        if (stockNumber.StockNumber == 1)
+        {
+            textMesh.text = game_data.Stock1.sharesOwned.ToString();
+        }
+        else if (stockNumber.StockNumber == 2)
+        {
+            textMesh.text = game_data.Stock2.sharesOwned.ToString();
+        }
+        else if (stockNumber.StockNumber == 3)
+        {
+            textMesh.text = game_data.Stock3.sharesOwned.ToString();
+        }
+        else if (stockNumber.StockNumber == 4)
+        {
+            textMesh.text = game_data.Stock4.sharesOwned.ToString();
+        }
     }
 }

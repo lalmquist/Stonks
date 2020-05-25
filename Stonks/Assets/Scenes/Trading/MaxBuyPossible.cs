@@ -10,6 +10,8 @@ public class MaxBuyPossible : MonoBehaviour
 
     int maxbuy_int;
     float maxbuy_float;
+    public Number stockNumber;
+    bool Zero;
 
     TextMeshProUGUI textMesh;
 
@@ -24,10 +26,48 @@ public class MaxBuyPossible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        maxbuy_float = game_data.playerMoney / game_data.Stock1.price;
+        Zero = false;
+
+        if (stockNumber.StockNumber == 1)
+        {
+            maxbuy_float = game_data.playerMoney / game_data.Stock1.price;
+            if (game_data.Stock1.price == 0f)
+            {
+                Zero = true;
+            }
+        }
+        else if (stockNumber.StockNumber == 2)
+        {
+            maxbuy_float = game_data.playerMoney / game_data.Stock2.price;
+            if (game_data.Stock2.price == 0f)
+            {
+                Zero = true;
+            }
+        }
+        else if (stockNumber.StockNumber == 3)
+        {
+            maxbuy_float = game_data.playerMoney / game_data.Stock3.price;
+            if (game_data.Stock3.price == 0f)
+            {
+                Zero = true;
+            }
+        }
+        else if (stockNumber.StockNumber == 4)
+        {
+            maxbuy_float = game_data.playerMoney / game_data.Stock4.price;
+            if (game_data.Stock4.price == 0f)
+            {
+                Zero = true;
+            }
+        }
 
         maxbuy_int = Mathf.FloorToInt(maxbuy_float);
 
-        textMesh.text = maxbuy_int.ToString();
+        if (Zero == true)
+        {
+            maxbuy_int = 0;
+        }
+
+        textMesh.text = maxbuy_int.ToString("#,#");
     }
 }

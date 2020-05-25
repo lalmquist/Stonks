@@ -69,7 +69,7 @@ public class FadingText : MonoBehaviour
         xMovement = 1f;
         yMovement = -4f;
 
-        transform.position = new Vector3(161, 550, 0);
+        transform.position = new Vector3(161, 585, 0);
         textMesh.text = "$" + arg;
     }
 
@@ -85,7 +85,7 @@ public class FadingText : MonoBehaviour
         xMovement = 1f;
         yMovement = 4f;
 
-        transform.position = new Vector3(161, 550, 0);
+        transform.position = new Vector3(161, 585, 0);
         textMesh.text = "$" + arg;
     }
 }

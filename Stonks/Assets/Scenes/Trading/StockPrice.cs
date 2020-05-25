@@ -9,6 +9,8 @@ public class StockPrice : MonoBehaviour
     float stock_price = 0;
     float price_buffer;
 
+    public Number stockNumber;
+
     GameObject gameData;
     GameData game_data;
 
@@ -31,7 +33,22 @@ public class StockPrice : MonoBehaviour
     {
         interval -= Time.deltaTime;
 
-        stock_price = game_data.Stock1.price;
+        if (stockNumber.StockNumber == 1)
+        {
+            stock_price = game_data.Stock1.price;
+        }
+        else if (stockNumber.StockNumber == 2)
+        {
+            stock_price = game_data.Stock2.price;
+        }
+        else if (stockNumber.StockNumber == 3)
+        {
+            stock_price = game_data.Stock3.price;
+        }
+        else if(stockNumber.StockNumber == 4)
+        {
+            stock_price = game_data.Stock4.price;
+        }
 
         textMesh.text = "$" + stock_price.ToString("n2");
 
@@ -44,11 +61,47 @@ public class StockPrice : MonoBehaviour
 
     void timerEnded()
     {
-        stock_price = game_data.Stock1.price;
+        if (stockNumber.StockNumber == 1)
+        {
+            stock_price = game_data.Stock1.price;
+        }
+        else if(stockNumber.StockNumber == 2)
+        {
+            stock_price = game_data.Stock2.price;
+        }
+        else if(stockNumber.StockNumber == 3)
+        {
+            stock_price = game_data.Stock3.price;
+        }
+        else if(stockNumber.StockNumber == 4)
+        {
+            stock_price = game_data.Stock4.price;
+        }
 
         stock_price = stock_price + Random.Range(-priceVariation, priceVariation);
 
-        game_data.Stock1.price = stock_price;
+        if (stock_price < 0)
+        {
+            stock_price = 0;
+        }
+
+        if (stockNumber.StockNumber == 1)
+        {
+            game_data.Stock1.price = stock_price;
+        }
+        else if (stockNumber.StockNumber == 2)
+        {
+            game_data.Stock2.price = stock_price;
+        }
+        else if (stockNumber.StockNumber == 3)
+        {
+            game_data.Stock3.price = stock_price;
+        }
+        else if (stockNumber.StockNumber == 4)
+        {
+            game_data.Stock4.price = stock_price;
+        }
+
 
         interval = stockUpdateTimer;
 

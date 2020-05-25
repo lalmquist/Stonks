@@ -23,9 +23,7 @@ public class PlayerMoney : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //textMesh.text = "$" + game_data.playerMoney.ToString("#.00");
         textMesh.text = "$" + game_data.playerMoney.ToString("n2");
-
     }
 
 }

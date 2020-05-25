@@ -15,6 +15,9 @@ public class GameData : MonoBehaviour
     [SerializeField] public float playerMoney;
 
     [SerializeField] public Stock Stock1 = new Stock();
+    [SerializeField] public Stock Stock2 = new Stock();
+    [SerializeField] public Stock Stock3 = new Stock();
+    [SerializeField] public Stock Stock4 = new Stock();
 
     [SerializeField] JSONFileData SaveData = new JSONFileData();
     [SerializeField] JSONFileData LoadData = new JSONFileData();
@@ -32,6 +35,9 @@ public class GameData : MonoBehaviour
     {
         public float playerMoney;
         public Stock stock1;
+        public Stock stock2;
+        public Stock stock3;
+        public Stock stock4;
     }
 
     public void SaveJSON()
@@ -44,9 +50,23 @@ public class GameData : MonoBehaviour
     {
         readData = System.IO.File.ReadAllText(filepath);
         LoadData = JsonUtility.FromJson<JSONFileData>(readData);
+
         Stock1.price = LoadData.stock1.price;
         Stock1.sharesOwned = LoadData.stock1.sharesOwned;
         Stock1.pricePaidForShares = LoadData.stock1.pricePaidForShares;
+
+        Stock2.price = LoadData.stock2.price;
+        Stock2.sharesOwned = LoadData.stock2.sharesOwned;
+        Stock2.pricePaidForShares = LoadData.stock2.pricePaidForShares;
+
+        Stock3.price = LoadData.stock3.price;
+        Stock3.sharesOwned = LoadData.stock3.sharesOwned;
+        Stock3.pricePaidForShares = LoadData.stock3.pricePaidForShares;
+
+        Stock4.price = LoadData.stock4.price;
+        Stock4.sharesOwned = LoadData.stock4.sharesOwned;
+        Stock4.pricePaidForShares = LoadData.stock4.pricePaidForShares;
+
         playerMoney = LoadData.playerMoney;
         doneLoad = true;
     }
@@ -76,13 +96,24 @@ public class GameData : MonoBehaviour
             moneybuffer = playerMoney;
             pricebuffer = Stock1.price;
             SaveData.playerMoney = moneybuffer;
+
             SaveData.stock1.price = Stock1.price;
             SaveData.stock1.sharesOwned = Stock1.sharesOwned;
             SaveData.stock1.pricePaidForShares = Stock1.pricePaidForShares;
+
+            SaveData.stock2.price = Stock2.price;
+            SaveData.stock2.sharesOwned = Stock2.sharesOwned;
+            SaveData.stock2.pricePaidForShares = Stock2.pricePaidForShares;
+
+            SaveData.stock3.price = Stock3.price;
+            SaveData.stock3.sharesOwned = Stock3.sharesOwned;
+            SaveData.stock3.pricePaidForShares = Stock3.pricePaidForShares;
+
+            SaveData.stock4.price = Stock4.price;
+            SaveData.stock4.sharesOwned = Stock4.sharesOwned;
+            SaveData.stock4.pricePaidForShares = Stock4.pricePaidForShares;
+
             SaveJSON();
         }
-
-
-        
     }
 }

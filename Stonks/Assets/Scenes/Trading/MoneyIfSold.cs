@@ -12,6 +12,7 @@ public class MoneyIfSold : MonoBehaviour
 
     float possibleSell;
     float netDifference;
+    public Number stockNumber;
 
 
     // Start is called before the first frame update
@@ -25,8 +26,41 @@ public class MoneyIfSold : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        possibleSell = game_data.Stock1.price * game_data.Stock1.sharesOwned;
-        netDifference = possibleSell - game_data.Stock1.pricePaidForShares;
+
+        if (stockNumber.StockNumber == 1)
+        {
+            possibleSell = game_data.Stock1.price * game_data.Stock1.sharesOwned;
+        }
+        else if (stockNumber.StockNumber == 2)
+        {
+            possibleSell = game_data.Stock1.price * game_data.Stock2.sharesOwned;
+        }
+        else if (stockNumber.StockNumber == 3)
+        {
+            possibleSell = game_data.Stock1.price * game_data.Stock3.sharesOwned;
+        }
+        else if (stockNumber.StockNumber == 4)
+        {
+            possibleSell = game_data.Stock1.price * game_data.Stock4.sharesOwned;
+        }
+
+        if (stockNumber.StockNumber == 1)
+        {
+            netDifference = possibleSell - game_data.Stock1.pricePaidForShares;
+        }
+        else if (stockNumber.StockNumber == 2)
+        {
+            netDifference = possibleSell - game_data.Stock2.pricePaidForShares;
+        }
+        else if (stockNumber.StockNumber == 3)
+        {
+            netDifference = possibleSell - game_data.Stock3.pricePaidForShares;
+        }
+        else if (stockNumber.StockNumber == 4)
+        {
+            netDifference = possibleSell - game_data.Stock4.pricePaidForShares;
+        }
+
         if (netDifference > 0)
         {
             textMesh.text = "$" + netDifference.ToString("n2");

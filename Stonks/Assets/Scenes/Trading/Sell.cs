@@ -13,6 +13,7 @@ public class Sell : MonoBehaviour
     float math;
 
     public FadingText fadeText;
+    public Number stockNumber;
 
     [SerializeField] TextMeshProUGUI quantity;
 
@@ -36,11 +37,41 @@ public class Sell : MonoBehaviour
     {
         int.TryParse(quantity.text, out shares);
 
-        price = game_data.Stock1.price;
+        if (stockNumber.StockNumber == 1)
+        {
+            price = game_data.Stock1.price;
+        }
+        else if (stockNumber.StockNumber == 2)
+        {
+            price = game_data.Stock2.price;
+        }
+        else if (stockNumber.StockNumber == 3)
+        {
+            price = game_data.Stock3.price;
+        }
+        else if (stockNumber.StockNumber == 4)
+        {
+            price = game_data.Stock4.price;
+        }
 
         money = game_data.playerMoney;
 
-        shares_owned = game_data.Stock1.sharesOwned;
+        if (stockNumber.StockNumber == 1)
+        {
+            shares_owned = game_data.Stock1.sharesOwned;
+        }
+        else if (stockNumber.StockNumber == 2)
+        {
+            shares_owned = game_data.Stock2.sharesOwned;
+        }
+        else if (stockNumber.StockNumber == 3)
+        {
+            shares_owned = game_data.Stock3.sharesOwned;
+        }
+        else if (stockNumber.StockNumber == 4)
+        {
+            shares_owned = game_data.Stock4.sharesOwned;
+        }
 
 
         if (shares_owned >= shares && shares > 0)
@@ -53,11 +84,41 @@ public class Sell : MonoBehaviour
 
             game_data.playerMoney = money;
 
-            game_data.Stock1.pricePaidForShares = game_data.Stock1.pricePaidForShares - (game_data.Stock1.pricePaidForShares * ((float)shares / (float)shares_owned));
+            if (stockNumber.StockNumber == 1)
+            {
+                game_data.Stock1.pricePaidForShares = game_data.Stock1.pricePaidForShares - (game_data.Stock1.pricePaidForShares * ((float)shares / (float)shares_owned));
+            }
+            else if (stockNumber.StockNumber == 2)
+            {
+                game_data.Stock2.pricePaidForShares = game_data.Stock2.pricePaidForShares - (game_data.Stock2.pricePaidForShares * ((float)shares / (float)shares_owned));
+            }
+            else if (stockNumber.StockNumber == 3)
+            {
+                game_data.Stock3.pricePaidForShares = game_data.Stock3.pricePaidForShares - (game_data.Stock3.pricePaidForShares * ((float)shares / (float)shares_owned));
+            }
+            else if (stockNumber.StockNumber == 4)
+            {
+                game_data.Stock4.pricePaidForShares = game_data.Stock4.pricePaidForShares - (game_data.Stock4.pricePaidForShares * ((float)shares / (float)shares_owned));
+            }
 
             shares_owned = shares_owned - shares;
 
-            game_data.Stock1.sharesOwned = shares_owned;
+            if (stockNumber.StockNumber == 1)
+            {
+                game_data.Stock1.sharesOwned = shares_owned;
+            }
+            else if (stockNumber.StockNumber == 2)
+            {
+                game_data.Stock2.sharesOwned = shares_owned;
+            }
+            else if (stockNumber.StockNumber == 3)
+            {
+                game_data.Stock3.sharesOwned = shares_owned;
+            }
+            else if (stockNumber.StockNumber == 4)
+            {
+                game_data.Stock4.sharesOwned = shares_owned;
+            }
 
             fadeText.FadeGreen(FadeTextArg);
 

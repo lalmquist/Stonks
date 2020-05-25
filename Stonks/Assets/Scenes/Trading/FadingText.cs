@@ -20,6 +20,9 @@ public class FadingText : MonoBehaviour
     float xMovement;
     float yMovement;
 
+    [SerializeField] float startY = 585;
+    [SerializeField] float startX = 161;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +72,7 @@ public class FadingText : MonoBehaviour
         xMovement = 1f;
         yMovement = -4f;
 
-        transform.position = new Vector3(161, 585, 0);
+        transform.position = new Vector3(startX, startY, 0);
         textMesh.text = "$" + arg;
     }
 
@@ -85,7 +88,7 @@ public class FadingText : MonoBehaviour
         xMovement = 1f;
         yMovement = 4f;
 
-        transform.position = new Vector3(161, 585, 0);
+        transform.position = new Vector3(startX, startY, 0);
         textMesh.text = "$" + arg;
     }
 }

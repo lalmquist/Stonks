@@ -29,19 +29,29 @@ public class BuyQuantity : MonoBehaviour
     {
         if (game_data.store.quantityButton == false)
         {
-            button.color = new Color32(255, 255, 255, 255);
+            if (game_data.playerMoney > -price)
+            {
+                button.color = new Color32(255, 255, 255, 255);
+            }
+            else
+            {
+                button.color = new Color32(213, 0, 0, 255);
+            }  
+        }
+        else if (game_data.store.quantityButton == true)
+        {
+            button.color = new Color32(0, 0, 0, 0);
         }
     }
 
     public void execute()
     {
-        game_data.store.quantityButton = true;
 
         if (game_data.playerMoney > -price)
         {
-            game_data.playerMoney = game_data.playerMoney + price;
+            game_data.store.quantityButton = true;
 
-            button.color = new Color32(0, 0, 0, 0);
+            game_data.playerMoney = game_data.playerMoney + price;
 
             priceToString = price.ToString("n2");
             fadeText.FadeRed(priceToString);

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class BuyQuantity : MonoBehaviour
+public class BuyButton : MonoBehaviour
 {
     GameObject gameData;
     GameData game_data;
@@ -15,41 +16,49 @@ public class BuyQuantity : MonoBehaviour
 
     Image button;
 
+    [SerializeField] TextMeshProUGUI textMesh;
+    [SerializeField] public bool buyBool;
+
+
     // Start is called before the first frame update
     void Start()
     {
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
-        price = -1000f;
         button = this.GetComponent<Image>();
+        price = -1000f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (game_data.store.quantityButton == false)
+        if (buyBool == false)
         {
+            textMesh.text = "BUY";
+            textMesh.color = new Color32(255, 255, 255, 255);
             if (game_data.playerMoney > -price)
             {
-                button.color = new Color32(255, 255, 255, 255);
+                button.color = new Color32(213, 213, 0, 255);
             }
             else
             {
                 button.color = new Color32(213, 0, 0, 255);
-            }  
+            }
         }
-        else if (game_data.store.quantityButton == true)
+        else if (buyBool == true)
         {
-            button.color = new Color32(0, 0, 0, 0);
+            button.color = new Color32(255, 255, 255, 255);
+            textMesh.text = "OWNED";
+            textMesh.color = new Color32(50, 50, 50, 255);
         }
     }
 
     public void execute()
     {
 
-        if (game_data.playerMoney > -price)
+        if (game_data.playerMoney > -price && buyBool == false)
         {
-            game_data.store.quantityButton = true;
+            buyBool = true;
 
             game_data.playerMoney = game_data.playerMoney + price;
 

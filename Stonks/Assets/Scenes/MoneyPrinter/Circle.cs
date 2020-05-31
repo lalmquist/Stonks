@@ -10,12 +10,12 @@ public class Circle : MonoBehaviour
     float radius = 30;
     float x;
     float y;
+    [SerializeField] float multiplier = 1f;
 
-    [SerializeField] float startX;
-    [SerializeField] float startY;
+    //[SerializeField] float startX;
+    //[SerializeField] float startY;
 
     [SerializeField] float a;
-    [SerializeField] float b;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class Circle : MonoBehaviour
     {
         angle += speed * Time.deltaTime; //if you want to switch direction, use -= instead of +=
         x = Mathf.Cos(angle) * (radius + a);
-        y = Mathf.Sin(angle) * (radius + b);
+        y = Mathf.Sin(angle) * (radius + a);
 
         transform.Translate(x * Time.deltaTime, y * Time.deltaTime, 0);
     }

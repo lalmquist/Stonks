@@ -33,32 +33,48 @@ public class MoneyIfSold : MonoBehaviour
         }
         else if (stockNumber.StockNumber == 2)
         {
-            possibleSell = game_data.Stock1.price * game_data.Stock2.sharesOwned;
+            possibleSell = game_data.Stock2.price * game_data.Stock2.sharesOwned;
         }
         else if (stockNumber.StockNumber == 3)
         {
-            possibleSell = game_data.Stock1.price * game_data.Stock3.sharesOwned;
+            possibleSell = game_data.Stock3.price * game_data.Stock3.sharesOwned;
         }
         else if (stockNumber.StockNumber == 4)
         {
-            possibleSell = game_data.Stock1.price * game_data.Stock4.sharesOwned;
+            possibleSell = game_data.Stock4.price * game_data.Stock4.sharesOwned;
         }
 
         if (stockNumber.StockNumber == 1)
         {
             netDifference = possibleSell - game_data.Stock1.pricePaidForShares;
+            if (game_data.Stock1.sharesOwned == 0)
+            {
+                textMesh.text = "";
+            }
         }
         else if (stockNumber.StockNumber == 2)
         {
             netDifference = possibleSell - game_data.Stock2.pricePaidForShares;
+            if (game_data.Stock2.sharesOwned == 0)
+            {
+                textMesh.text = "";
+            }
         }
         else if (stockNumber.StockNumber == 3)
         {
             netDifference = possibleSell - game_data.Stock3.pricePaidForShares;
+            if (game_data.Stock3.sharesOwned == 0)
+            {
+                textMesh.text = "";
+            }
         }
         else if (stockNumber.StockNumber == 4)
         {
             netDifference = possibleSell - game_data.Stock4.pricePaidForShares;
+            if (game_data.Stock4.sharesOwned == 0)
+            {
+                textMesh.text = "";
+            }
         }
 
         if (netDifference > 0)
@@ -76,12 +92,5 @@ public class MoneyIfSold : MonoBehaviour
             textMesh.text = "-" + "$" + Mathf.Abs(netDifference).ToString("n2");
             textMesh.color = new Color32(255, 0, 0, 255);
         }
-
-        if (game_data.Stock1.sharesOwned == 0)
-        {
-            textMesh.text = "";
-        }
-
-       
     }
 }

@@ -18,7 +18,7 @@ public class HandleBuys : MonoBehaviour
     {
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
-        
+        Buy1.buyBool = game_data.store.quantityButton;
     }
 
     // Update is called once per frame
@@ -27,10 +27,6 @@ public class HandleBuys : MonoBehaviour
         if (done)
         {
             game_data.store.quantityButton = Buy1.buyBool;
-        }
-        else
-        {
-            Buy1.buyBool = game_data.store.quantityButton;
         }
 
         done = true;

@@ -12,12 +12,12 @@ public class ClickZone : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
-    [SerializeField] Streak streak;
+    [SerializeField] public Streak streak;
 
     public bool inZone;
     
-    [SerializeField] Circle circle;
-    [SerializeField] ClickZone otherZone;
+    [SerializeField] public Circle circle;
+    [SerializeField] public ClickZone otherZone;
 
     float minSpeed;
     float maxSpeed;

@@ -15,7 +15,7 @@ public class Sell : MonoBehaviour
     public FadingText fadeText;
     public Number stockNumber;
 
-    [SerializeField] TextMeshProUGUI quantity;
+    [SerializeField] public TextMeshProUGUI quantity;
 
     GameObject gameData;
     GameData game_data;

@@ -9,7 +9,7 @@ public class HandleBuys : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
-    [SerializeField] BuyButton Buy1;
+    [SerializeField] public BuyButton Buy1;
 
     bool done = false;
 

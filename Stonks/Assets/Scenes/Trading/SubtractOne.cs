@@ -7,7 +7,7 @@ public class SubtractOne : MonoBehaviour
 {
     public int multiplier = 1;
     int value = 0;
-    [SerializeField] TextMeshProUGUI valueText;
+    [SerializeField] public TextMeshProUGUI valueText;
 
     // Start is called before the first frame update
     void Start()

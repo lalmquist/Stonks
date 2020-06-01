@@ -16,7 +16,7 @@ public class QuantityMultipler : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
-    [SerializeField] Image button;
+    [SerializeField] public Image button;
 
     // Start is called before the first frame update
     void Start()

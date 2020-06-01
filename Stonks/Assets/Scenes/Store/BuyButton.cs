@@ -16,7 +16,7 @@ public class BuyButton : MonoBehaviour
 
     Image button;
 
-    [SerializeField] TextMeshProUGUI textMesh;
+    [SerializeField] public TextMeshProUGUI textMesh;
     [SerializeField] public bool buyBool;
 
 

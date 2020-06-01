@@ -7,10 +7,10 @@ public class ParseData : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
-    [SerializeField] MaxBuyPossible stock1;
-    [SerializeField] MaxBuyPossible stock2;
-    [SerializeField] MaxBuyPossible stock3;
-    [SerializeField] MaxBuyPossible stock4;
+    [SerializeField] public MaxBuyPossible stock1;
+    [SerializeField] public MaxBuyPossible stock2;
+    [SerializeField] public MaxBuyPossible stock3;
+    [SerializeField] public MaxBuyPossible stock4;
 
 
     // Start is called before the first frame update

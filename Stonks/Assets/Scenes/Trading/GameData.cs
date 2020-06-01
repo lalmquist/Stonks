@@ -62,7 +62,7 @@ public class GameData : MonoBehaviour
         LoadData = JsonUtility.FromJson<JSONFileData>(readData);
 
         Stock1 = LoadData.stock1;
-        Stock2= LoadData.stock2;
+        Stock2 = LoadData.stock2;
         Stock3 = LoadData.stock3;
         Stock4 = LoadData.stock4;
 
@@ -92,7 +92,7 @@ public class GameData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (((moneybuffer != playerMoney) || (Stock1.price != pricebuffer)) && (doneLoad == true))
+        if (((moneybuffer != playerMoney) || (Stock1.price != pricebuffer) || (SaveData.store != store)) && (doneLoad == true))
         {
 
             moneybuffer = playerMoney;

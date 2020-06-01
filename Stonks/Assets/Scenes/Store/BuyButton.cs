@@ -11,10 +11,12 @@ public class BuyButton : MonoBehaviour
 
     public FadingText fadeText;
 
-    float price;
+    public float price;
     string priceToString;
 
     Image button;
+
+    [SerializeField] public HandleBuys handleBuy;
 
     [SerializeField] public TextMeshProUGUI textMesh;
     [SerializeField] public bool buyBool;
@@ -60,7 +62,7 @@ public class BuyButton : MonoBehaviour
         {
             buyBool = true;
 
-            game_data.playerMoney = game_data.playerMoney + price;
+            handleBuy.UpdateStore(price);
 
             priceToString = price.ToString("n2");
             fadeText.FadeRed(priceToString);

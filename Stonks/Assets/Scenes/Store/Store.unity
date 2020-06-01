@@ -265,6 +265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeText: {fileID: 1243033670}
+  price: 0
+  handleBuy: {fileID: 2138239663}
   textMesh: {fileID: 197965168}
   buyBool: 0
 --- !u!1 &197965166
@@ -2066,8 +2068,8 @@ MonoBehaviour:
     price: 0
     sharesOwned: 0
   store:
-    quantityButton: 0
-    dualMonitors: 0
+    quantityButton: 1
+    dualMonitors: 1
   SaveData:
     playerMoney: 0
     stock1:

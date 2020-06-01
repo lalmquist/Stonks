@@ -11,8 +11,6 @@ public class HandleBuys : MonoBehaviour
 
     [SerializeField] public BuyButton Buy1;
 
-    bool done = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +22,13 @@ public class HandleBuys : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (done)
-        {
-            game_data.store.quantityButton = Buy1.buyBool;
-        }
 
-        done = true;
     }
+
+    public void UpdateStore(float price)
+    {
+        game_data.store.quantityButton = Buy1.buyBool;
+        game_data.playerMoney = game_data.playerMoney + price;
+    }
+
 }

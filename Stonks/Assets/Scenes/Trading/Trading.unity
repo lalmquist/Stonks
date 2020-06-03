@@ -3223,6 +3223,7 @@ GameObject:
   - component: {fileID: 1027485961}
   - component: {fileID: 1027485960}
   - component: {fileID: 1027485962}
+  - component: {fileID: 1027485963}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3382,7 +3383,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 0
+  canvasGroup: {fileID: 1499555233}
   button: {fileID: 1499555235}
+--- !u!225 &1027485963
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027485958}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!4 &1034411278
 Transform:
   m_ObjectHideFlags: 0
@@ -4927,6 +4941,7 @@ GameObject:
   - component: {fileID: 1499555236}
   - component: {fileID: 1499555235}
   - component: {fileID: 1499555234}
+  - component: {fileID: 1499555233}
   m_Layer: 5
   m_Name: QuantityMultiplyer
   m_TagString: Untagged
@@ -4954,6 +4969,18 @@ RectTransform:
   m_AnchoredPosition: {x: 135, y: -307}
   m_SizeDelta: {x: 63.32, y: 37.08}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1499555233
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499555231}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &1499555234
 MonoBehaviour:
   m_ObjectHideFlags: 0

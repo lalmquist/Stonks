@@ -36,7 +36,15 @@ public class Sell : MonoBehaviour
 
     public void execute()
     {
-        shares = quantity.multiplier;
+
+        if (quantity.multiplier == 0)
+        {
+            shares = 1;
+        }
+        else
+        {
+            shares = quantity.multiplier;
+        }
 
         if (stockNumber.StockNumber == 1)
         {
@@ -73,7 +81,6 @@ public class Sell : MonoBehaviour
         {
             shares_owned = game_data.Stock4.sharesOwned;
         }
-
 
         if (shares_owned >= shares && shares > 0)
         {

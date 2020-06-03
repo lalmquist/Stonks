@@ -14,6 +14,8 @@ public class QuantityMultipler : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
+    public CanvasGroup canvasGroup;
+
     [SerializeField] public Image button;
 
     // Start is called before the first frame update
@@ -31,13 +33,13 @@ public class QuantityMultipler : MonoBehaviour
     {
         if (game_data.store.quantityButton == true)
         {
-            button.color = new Color32(255, 255, 255, 255);
-            textMesh.color = new Color32(50, 50, 50, 255);
+            canvasGroup.alpha = 1f;
+            canvasGroup.interactable = true;
         }
         else
         {
-            button.color = new Color32(0, 0, 0, 0);
-            textMesh.color = new Color32(0, 0, 0, 0);
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = false;
         }
     }
 

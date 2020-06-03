@@ -16,11 +16,10 @@ public class Buy : MonoBehaviour
     public FadingText fadeText;
     public Number stockNumber;
 
-    [SerializeField] public TextMeshProUGUI quantity;
-
     GameObject gameData;
     GameData game_data;
 
+    public QuantityMultipler quantity;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +36,16 @@ public class Buy : MonoBehaviour
 
     public void execute()
     {
+        if (quantity.multiplier == 0)
+        {
+            shares = 1;
+        }
+        else
+        {
+            shares = quantity.multiplier;
+        }
+
+
         if (stockNumber.StockNumber == 1)
         {
             price = game_data.Stock1.price;
@@ -53,8 +62,6 @@ public class Buy : MonoBehaviour
         {
             price = game_data.Stock4.price;
         }
-
-        int.TryParse(quantity.text, out shares);
 
         money = game_data.playerMoney;
 
@@ -127,7 +134,6 @@ public class Buy : MonoBehaviour
 
             fadeText.FadeRed(FadeTextArg);
 
-            quantity.text = "0";
         }
     }
 }

@@ -47,6 +47,7 @@ public class GameData : MonoBehaviour
     public class Store
     {
         public bool quantityButton;
+        public bool sellAll;
         public bool dualMonitors;
     }
 

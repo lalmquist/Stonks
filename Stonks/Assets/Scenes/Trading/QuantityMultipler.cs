@@ -6,9 +6,7 @@ using TMPro;
 
 public class QuantityMultipler : MonoBehaviour
 {
-
-    public AddOne addOne;
-    public SubtractOne subtractOne;
+    public int multiplier;
 
     TextMeshProUGUI textMesh;
     int toggle = 0;
@@ -26,8 +24,6 @@ public class QuantityMultipler : MonoBehaviour
         game_data = gameData.GetComponent<GameData>();
         toggle = 0;
         textMesh.text = "x1";
-        addOne.multiplier = 1;
-        subtractOne.multiplier = addOne.multiplier;
     }
 
     // Update is called once per frame
@@ -59,20 +55,17 @@ public class QuantityMultipler : MonoBehaviour
         if (toggle == 0)
         {
             textMesh.text = "x1";
-            addOne.multiplier = 1;
-            subtractOne.multiplier = addOne.multiplier;
+            multiplier = 1;
         }
         else if (toggle == 1)
         {
             textMesh.text = "x10";
-            addOne.multiplier = 10;
-            subtractOne.multiplier = addOne.multiplier;
+            multiplier = 10;
         }
         else if (toggle == 2)
         {
             textMesh.text = "x100";
-            addOne.multiplier = 100;
-            subtractOne.multiplier = addOne.multiplier;
+            multiplier = 100;
         }
     }
 }

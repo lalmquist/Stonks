@@ -15,10 +15,11 @@ public class Sell : MonoBehaviour
     public FadingText fadeText;
     public Number stockNumber;
 
-    [SerializeField] public TextMeshProUGUI quantity;
 
     GameObject gameData;
     GameData game_data;
+
+    public QuantityMultipler quantity;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +31,12 @@ public class Sell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void execute()
     {
-        int.TryParse(quantity.text, out shares);
+        shares = quantity.multiplier;
 
         if (stockNumber.StockNumber == 1)
         {
@@ -121,8 +122,6 @@ public class Sell : MonoBehaviour
             }
 
             fadeText.FadeGreen(FadeTextArg);
-
-            quantity.text = "0";
         }
     }
 }

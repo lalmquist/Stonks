@@ -14,8 +14,11 @@ public class SellAll : MonoBehaviour
     public FadingText fadeText;
     public Number stockNumber;
 
+    public CanvasGroup canvasGroup;
+
     GameObject gameData;
     GameData game_data;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,16 @@ public class SellAll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (game_data.store.sellAll)
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.interactable = true;
+        }
+        else
+        {
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = false;
+        }
     }
 
     public void execute()

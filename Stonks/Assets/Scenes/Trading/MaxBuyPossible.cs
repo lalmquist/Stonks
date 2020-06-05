@@ -8,7 +8,7 @@ public class MaxBuyPossible : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
-    int maxbuy_int;
+    public int maxbuy_int;
     float maxbuy_float;
 
     public float price;

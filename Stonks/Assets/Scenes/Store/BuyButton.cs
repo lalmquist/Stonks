@@ -28,7 +28,6 @@ public class BuyButton : MonoBehaviour
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
         button = this.GetComponent<Image>();
-        price = -1000f;
     }
 
     // Update is called once per frame
@@ -38,7 +37,7 @@ public class BuyButton : MonoBehaviour
         {
             textMesh.text = "BUY";
             textMesh.color = new Color32(255, 255, 255, 255);
-            if (game_data.playerMoney > -price)
+            if (game_data.playerMoney > price)
             {
                 button.color = new Color32(213, 213, 0, 255);
             }
@@ -58,7 +57,7 @@ public class BuyButton : MonoBehaviour
     public void execute()
     {
 
-        if (game_data.playerMoney > -price && buyBool == false)
+        if (game_data.playerMoney > price && buyBool == false)
         {
             buyBool = true;
 

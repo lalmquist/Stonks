@@ -53,13 +53,14 @@ public class ClickZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (streak.streak > 0)
         {
-            moneyBonus = (streak.streak * circle.multiplier / minSpeed);
+            moneyBonus = (streak.streak * circle.multiplier * game_data.store.storeMultiplier / minSpeed);
         }
         else
         {
-            moneyBonus = 1;
+            moneyBonus = 1 * game_data.store.storeMultiplier;
         }
         
         circle.multiplier -= 0.00025f;

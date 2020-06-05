@@ -48,7 +48,11 @@ public class GameData : MonoBehaviour
     {
         public bool quantityButton;
         public bool sellAll;
-        public bool dualMonitors;
+        public bool buyAll;
+        public bool unlockStock2;
+        public bool unlockStock3;
+        public bool unlockStock4;
+        public float storeMultiplier;
     }
 
     public void SaveJSON()
@@ -77,6 +81,7 @@ public class GameData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        store.storeMultiplier = 1f;
 
         filepath = Application.persistentDataPath + "/save.json";
         try

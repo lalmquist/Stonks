@@ -11,13 +11,21 @@ public class HandleBuys : MonoBehaviour
 
     [SerializeField] public BuyButton Buy1;
     [SerializeField] public BuyButton Buy2;
+    [SerializeField] public BuyButton Buy3;
 
     // Start is called before the first frame update
     void Start()
     {
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
+
         Buy1.buyBool = game_data.store.quantityButton;
+        Buy2.buyBool = game_data.store.sellAll;
+        Buy3.buyBool = game_data.store.buyAll;
+
+        Buy1.price = 1000f;
+        Buy2.price = 250f;
+        Buy3.price = 420f;
     }
 
     // Update is called once per frame
@@ -30,7 +38,10 @@ public class HandleBuys : MonoBehaviour
     {
         game_data.store.quantityButton = Buy1.buyBool;
         game_data.store.sellAll = Buy2.buyBool;
-        game_data.playerMoney = game_data.playerMoney + price;
+        game_data.store.buyAll = Buy3.buyBool;
+
+
+        game_data.playerMoney = game_data.playerMoney - price;
     }
 
 }

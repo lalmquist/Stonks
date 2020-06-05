@@ -73,7 +73,7 @@ public class FadingText : MonoBehaviour
         yMovement = -4f;
 
         transform.position = new Vector3(startX, startY, 0);
-        textMesh.text = "$" + arg;
+        textMesh.text = "-$" + arg;
     }
 
     public void FadeGreen(string arg)

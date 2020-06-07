@@ -30,6 +30,7 @@ public class GameData : MonoBehaviour
         public float pricePaidForShares;
         public float price;
         public int sharesOwned;
+        public string name;
     }
 
     [System.Serializable]
@@ -81,7 +82,6 @@ public class GameData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        store.storeMultiplier = 1f;
 
         filepath = Application.persistentDataPath + "/save.json";
         try

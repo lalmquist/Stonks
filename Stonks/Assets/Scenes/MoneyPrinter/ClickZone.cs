@@ -47,7 +47,12 @@ public class ClickZone : MonoBehaviour
         game_data = gameData.GetComponent<GameData>();
         minSpeed = 0.5f;
         maxSpeed = 1.75f;
-        speedChange = 0.05f;
+        speedChange = 0.075f;
+
+        if (game_data.store.storeMultiplier < 1f)
+        {
+            game_data.store.storeMultiplier = 1f;
+        }
     }
 
     // Update is called once per frame

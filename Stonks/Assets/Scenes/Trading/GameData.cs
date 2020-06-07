@@ -58,6 +58,17 @@ public class GameData : MonoBehaviour
 
     public void SaveJSON()
     {
+        moneybuffer = playerMoney;
+        pricebuffer = Stock1.price;
+        SaveData.playerMoney = playerMoney;
+
+        SaveData.stock1 = Stock1;
+        SaveData.stock2 = Stock2;
+        SaveData.stock3 = Stock3;
+        SaveData.stock4 = Stock4;
+
+        SaveData.store = store;
+
         saveJSON = JsonUtility.ToJson(SaveData);
         System.IO.File.WriteAllText(filepath, saveJSON);
     }
@@ -100,19 +111,8 @@ public class GameData : MonoBehaviour
     {
         if (((moneybuffer != playerMoney) || (Stock1.price != pricebuffer) || (SaveData.store != store)) && (doneLoad == true))
         {
-
-            moneybuffer = playerMoney;
-            pricebuffer = Stock1.price;
-            SaveData.playerMoney = moneybuffer;
-
-            SaveData.stock1 = Stock1;
-            SaveData.stock2 = Stock2;
-            SaveData.stock3 = Stock3;
-            SaveData.stock4 = Stock4;
-
-            SaveData.store = store;
-
             SaveJSON();
         }
     }
+
 }

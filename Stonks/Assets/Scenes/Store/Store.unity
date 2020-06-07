@@ -1588,7 +1588,6 @@ GameObject:
   - component: {fileID: 528012753}
   - component: {fileID: 528012752}
   - component: {fileID: 528012751}
-  - component: {fileID: 528012750}
   m_Layer: 5
   m_Name: BuyStock2Button
   m_TagString: Untagged
@@ -1616,24 +1615,6 @@ RectTransform:
   m_AnchoredPosition: {x: 97.15101, y: 209.99997}
   m_SizeDelta: {x: 78.8, y: 44.8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &528012750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528012748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c683e2517314e8890ef383c4ff0109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeText: {fileID: 1243033670}
-  price: 0
-  handleBuy: {fileID: 2138239663}
-  buttonText: {fileID: 531521443}
-  buyBool: 0
-  buyText: {fileID: 2032650748}
 --- !u!114 &528012751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,7 +1658,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528012750}
+      - m_Target: {fileID: 0}
         m_MethodName: execute
         m_Mode: 1
         m_Arguments:
@@ -2187,7 +2168,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2554911}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.37912366
+  m_Size: 0.37913188
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3364,7 +3345,6 @@ GameObject:
   - component: {fileID: 1362157335}
   - component: {fileID: 1362157334}
   - component: {fileID: 1362157333}
-  - component: {fileID: 1362157332}
   m_Layer: 5
   m_Name: BuyStock3Button
   m_TagString: Untagged
@@ -3372,24 +3352,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1362157332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362157331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c683e2517314e8890ef383c4ff0109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeText: {fileID: 1243033670}
-  price: 0
-  handleBuy: {fileID: 2138239663}
-  buttonText: {fileID: 958602106}
-  buyBool: 0
-  buyText: {fileID: 1401201624}
 --- !u!114 &1362157333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3433,7 +3395,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1362157332}
+      - m_Target: {fileID: 0}
         m_MethodName: execute
         m_Mode: 1
         m_Arguments:
@@ -4695,7 +4657,6 @@ GameObject:
   - component: {fileID: 2079167659}
   - component: {fileID: 2079167658}
   - component: {fileID: 2079167657}
-  - component: {fileID: 2079167656}
   m_Layer: 5
   m_Name: BuyStock4Button
   m_TagString: Untagged
@@ -4723,24 +4684,6 @@ RectTransform:
   m_AnchoredPosition: {x: 103, y: 32}
   m_SizeDelta: {x: 78.8, y: 44.8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2079167656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079167654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c683e2517314e8890ef383c4ff0109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeText: {fileID: 1243033670}
-  price: 0
-  handleBuy: {fileID: 2138239663}
-  buttonText: {fileID: 112790126}
-  buyBool: 0
-  buyText: {fileID: 661770387}
 --- !u!114 &2079167657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4784,7 +4727,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2079167656}
+      - m_Target: {fileID: 0}
         m_MethodName: execute
         m_Mode: 1
         m_Arguments:
@@ -4980,9 +4923,9 @@ MonoBehaviour:
   Buy1: {fileID: 159252651}
   Buy2: {fileID: 129926128}
   Buy3: {fileID: 9275992}
-  Buy4: {fileID: 528012750}
-  Buy5: {fileID: 1362157332}
-  Buy6: {fileID: 2079167656}
+  Buy4: {fileID: 0}
+  Buy5: {fileID: 0}
+  Buy6: {fileID: 0}
 --- !u!1001 &5204904406530375359
 PrefabInstance:
   m_ObjectHideFlags: 0

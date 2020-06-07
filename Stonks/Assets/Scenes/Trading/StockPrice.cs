@@ -82,7 +82,7 @@ public class StockPrice : MonoBehaviour
 
         if (stock_price < 0)
         {
-            stock_price = 0;
+            stock_price = 0.01f;
         }
 
         if (stockNumber.StockNumber == 1)

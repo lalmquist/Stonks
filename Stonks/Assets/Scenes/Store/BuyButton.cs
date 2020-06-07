@@ -14,12 +14,16 @@ public class BuyButton : MonoBehaviour
     public float price;
     string priceToString;
 
+    bool Done = false;
+
     Image button;
 
     [SerializeField] public HandleBuys handleBuy;
 
-    [SerializeField] public TextMeshProUGUI textMesh;
+    [SerializeField] public TextMeshProUGUI buttonText;
     [SerializeField] public bool buyBool;
+
+    [SerializeField] public TextMeshProUGUI buyText;
 
 
     // Start is called before the first frame update
@@ -28,6 +32,7 @@ public class BuyButton : MonoBehaviour
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
         button = this.GetComponent<Image>();
+
     }
 
     // Update is called once per frame
@@ -35,8 +40,10 @@ public class BuyButton : MonoBehaviour
     {
         if (buyBool == false)
         {
-            textMesh.text = "BUY";
-            textMesh.color = new Color32(255, 255, 255, 255);
+            buyText.color = new Color32(255, 255, 255, 255);
+
+            buttonText.text = "BUY";
+            buttonText.color = new Color32(255, 255, 255, 255);
             if (game_data.playerMoney > price)
             {
                 button.color = new Color32(213, 213, 0, 255);
@@ -48,9 +55,17 @@ public class BuyButton : MonoBehaviour
         }
         else if (buyBool == true)
         {
+            buyText.color = new Color32(213, 213, 213, 126);
+
             button.color = new Color32(255, 255, 255, 255);
-            textMesh.text = "OWNED";
-            textMesh.color = new Color32(50, 50, 50, 255);
+            buttonText.text = "OWNED";
+            buttonText.color = new Color32(50, 50, 50, 255);
+        }
+
+        if (Done == false & price > 0f)
+        {
+            setPriceText();
+            Done = true;
         }
     }
 
@@ -66,5 +81,10 @@ public class BuyButton : MonoBehaviour
             priceToString = price.ToString("n2");
             fadeText.FadeRed(priceToString);
         }
+    }
+
+    void setPriceText()
+    {
+        buyText.text += " $" + price;
     }
 }

@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class StoreButton : MonoBehaviour
 {
+    [SerializeField] public LevelLoader levelLoader;
+
     public void LoadStoreButton()
     {
-        SceneManager.LoadScene("Store");
+        levelLoader.LoadNextLevel("Store");
     }
 }

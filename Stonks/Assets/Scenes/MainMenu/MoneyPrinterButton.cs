@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MoneyPrinterButton : MonoBehaviour
 {
+    [SerializeField] public LevelLoader levelLoader;
+
     public void LoadMoneyPrinterButton()
     {
-        SceneManager.LoadScene("MoneyPrinter");
+        levelLoader.LoadNextLevel("MoneyPrinter");
     }
 }

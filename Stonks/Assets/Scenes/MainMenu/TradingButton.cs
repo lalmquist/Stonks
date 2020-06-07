@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class TradingButton : MonoBehaviour
 {
+    [SerializeField] public LevelLoader levelLoader;
+
     public void LoadTradingScene()
     {
-        SceneManager.LoadScene("Trading");
+        levelLoader.LoadNextLevel("Trading");
     }
 }

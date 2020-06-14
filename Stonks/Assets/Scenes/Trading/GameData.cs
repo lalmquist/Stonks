@@ -12,6 +12,8 @@ public class GameData : MonoBehaviour
     float pricebuffer;
     bool doneLoad = false;
 
+    public float stockBuyPrice;
+
     [SerializeField] public float playerMoney;
 
     [SerializeField] public Stock Stock1 = new Stock();

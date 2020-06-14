@@ -604,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77b4380393d16a429c42debeb45e96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stockBuyPrice: 0
   playerMoney: 0
   Stock1:
     pricePaidForShares: 0
@@ -1377,6 +1378,7 @@ GameObject:
   - component: {fileID: 821358495}
   - component: {fileID: 821358494}
   - component: {fileID: 821358493}
+  - component: {fileID: 821358496}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1447,7 +1449,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 457143863}
+      - m_Target: {fileID: 821358496}
         m_MethodName: execute
         m_Mode: 1
         m_Arguments:
@@ -1495,6 +1497,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821358491}
   m_CullTransparentMesh: 0
+--- !u!114 &821358496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821358491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5237324ca654da4a7b33ea5dde2883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelLoader: {fileID: 1858236888}
 --- !u!1 &894198038
 GameObject:
   m_ObjectHideFlags: 0

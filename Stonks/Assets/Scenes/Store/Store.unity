@@ -1588,6 +1588,7 @@ GameObject:
   - component: {fileID: 528012753}
   - component: {fileID: 528012752}
   - component: {fileID: 528012751}
+  - component: {fileID: 528012750}
   m_Layer: 5
   m_Name: BuyStock2Button
   m_TagString: Untagged
@@ -1615,6 +1616,25 @@ RectTransform:
   m_AnchoredPosition: {x: 97.15101, y: 209.99997}
   m_SizeDelta: {x: 78.8, y: 44.8}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &528012750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528012748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e59efa9c5c9c7b4fb9a4f795c9fc157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeText: {fileID: 1243033670}
+  price: 0
+  handleBuy: {fileID: 2138239663}
+  buttonText: {fileID: 531521443}
+  buyBool: 0
+  buyText: {fileID: 2032650748}
+  levelLoader: {fileID: 5204904406530375360}
 --- !u!114 &528012751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,7 +1678,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 528012750}
         m_MethodName: execute
         m_Mode: 1
         m_Arguments:
@@ -4923,9 +4943,7 @@ MonoBehaviour:
   Buy1: {fileID: 159252651}
   Buy2: {fileID: 129926128}
   Buy3: {fileID: 9275992}
-  Buy4: {fileID: 0}
-  Buy5: {fileID: 0}
-  Buy6: {fileID: 0}
+  Buy4: {fileID: 528012750}
 --- !u!1001 &5204904406530375359
 PrefabInstance:
   m_ObjectHideFlags: 0

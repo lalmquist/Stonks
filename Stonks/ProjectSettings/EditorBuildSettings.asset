@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MoneyPrinter/MoneyPrinter.unity
     guid: 5c7965134915bd141b23c942cbf8ccb3
+  - enabled: 1
+    path: Assets/Scenes/CreateStock/CreateStock.unity
+    guid: c9672e8e37517cf4190842d589b9bc0f
   m_configObjects: {}

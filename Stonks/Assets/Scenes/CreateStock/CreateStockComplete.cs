@@ -46,6 +46,9 @@ public class CreateStockComplete : MonoBehaviour
     {
         if (Enabled)
         {
+            game_data.playerMoney -= game_data.stockBuyPrice;
+            Debug.Log(game_data.playerMoney);
+
             if (game_data.store.unlockStock2 == false)
             {
                 game_data.Stock2.name = stockInputBox.outputValue;
@@ -54,7 +57,7 @@ public class CreateStockComplete : MonoBehaviour
                 game_data.store.unlockStock2 = true;
             }
 
-            if (game_data.store.unlockStock3 == false)
+            else if (game_data.store.unlockStock3 == false)
             {
                 game_data.Stock3.name = stockInputBox.outputValue;
                 game_data.Stock3.price = valueInputBox.outputValue;
@@ -62,7 +65,7 @@ public class CreateStockComplete : MonoBehaviour
                 game_data.store.unlockStock3 = true;
             }
 
-            if (game_data.store.unlockStock4 == false)
+            else if (game_data.store.unlockStock4 == false)
             {
                 game_data.Stock4.name = stockInputBox.outputValue;
                 game_data.Stock4.price = valueInputBox.outputValue;

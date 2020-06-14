@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class IPOBuyButton : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class IPOBuyButton : MonoBehaviour
     [SerializeField] public bool buyBool;
 
     [SerializeField] public TextMeshProUGUI buyText;
+
+    [SerializeField] public LevelLoader levelLoader;
 
 
     // Start is called before the first frame update
@@ -74,12 +77,9 @@ public class IPOBuyButton : MonoBehaviour
 
         if (game_data.playerMoney > price && buyBool == false)
         {
-            buyBool = true;
-
-            handleBuy.UpdateStore(price);
-
-            priceToString = price.ToString("n2");
-            fadeText.FadeRed(priceToString);
+            levelLoader.LoadNextLevel("CreateStock");
+            game_data.stockBuyPrice = price;
+            Debug.Log(price);
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using TMPro;
 
 public class MoneyIfSold : MonoBehaviour
@@ -10,8 +11,9 @@ public class MoneyIfSold : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
-    float possibleSell;
-    float netDifference;
+
+    decimal possibleSell;
+    decimal netDifference;
     public Number stockNumber;
 
 
@@ -89,7 +91,7 @@ public class MoneyIfSold : MonoBehaviour
         }
         else
         {
-            textMesh.text = "-" + "$" + Mathf.Abs(netDifference).ToString("n2");
+            textMesh.text = "-" + "$" + Math.Abs(netDifference).ToString("n2");
             textMesh.color = new Color32(255, 0, 0, 255);
         }
     }

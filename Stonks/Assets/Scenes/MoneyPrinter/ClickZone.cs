@@ -19,10 +19,12 @@ public class ClickZone : MonoBehaviour
     [SerializeField] public Circle circle;
     [SerializeField] public ClickZone otherZone;
 
-    float minSpeed;
-    float maxSpeed;
-    float speedChange;
-    public float moneyBonus;
+    double minSpeed;
+    double maxSpeed;
+    double speedChange;
+    public decimal moneyBonus;
+
+    double idleChange = 0.00025;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -45,13 +47,13 @@ public class ClickZone : MonoBehaviour
 
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
-        minSpeed = 0.5f;
-        maxSpeed = 1.75f;
-        speedChange = 0.075f;
+        minSpeed = 0.5;
+        maxSpeed = 1.75;
+        speedChange = 0.075;
 
-        if (game_data.store.storeMultiplier < 1f)
+        if (game_data.store.storeMultiplier < 1)
         {
-            game_data.store.storeMultiplier = 1f;
+            game_data.store.storeMultiplier = 1;
         }
     }
 
@@ -61,39 +63,39 @@ public class ClickZone : MonoBehaviour
 
         if (streak.streak > 0)
         {
-            moneyBonus = (streak.streak * circle.multiplier * game_data.store.storeMultiplier / minSpeed);
+            moneyBonus = (streak.streak * circle.multiplier * game_data.store.storeMultiplier / (decimal)minSpeed);
         }
         else
         {
-            moneyBonus = 1 * game_data.store.storeMultiplier;
+            moneyBonus = 1 * (decimal)game_data.store.storeMultiplier;
         }
         
-        circle.multiplier -= 0.00025f;
+        circle.multiplier -= (decimal)idleChange;
 
         if (Input.GetMouseButtonDown(0))
         {
             if (inZone)
             {
                 streak.streak += 1;
-                circle.multiplier += speedChange;
-                game_data.playerMoney += moneyBonus;
+                circle.multiplier += (decimal)speedChange;
+                game_data.playerMoney += (decimal)moneyBonus;
             }
             else if (inZone == false & otherZone.inZone == false)
             {
-                circle.multiplier -= speedChange;
+                circle.multiplier -= (decimal)speedChange;
                 streak.streak = 0;
             }
         }
 
 
         // speed limits
-        if (circle.multiplier < minSpeed)
+        if (circle.multiplier < (decimal)minSpeed)
         {
-            circle.multiplier = minSpeed;
+            circle.multiplier = (decimal)minSpeed;
         }
-        else if (circle.multiplier > maxSpeed)
+        else if (circle.multiplier > (decimal)maxSpeed)
         {
-            circle.multiplier = maxSpeed;
+            circle.multiplier = (decimal)maxSpeed;
         }
 
         BonusMoneyTMP.text = moneyBonus.ToString("n2");

@@ -65,7 +65,7 @@ public class IPOBuyButton : MonoBehaviour
             buttonText.color = new Color32(50, 50, 50, 255);
         }
 
-        if (Done == false & price > 0f)
+        if (Done == false & price > 0)
         {
             setPriceText();
             Done = true;

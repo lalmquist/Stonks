@@ -8,10 +8,10 @@ public class ValueInputBox : MonoBehaviour
 {
     [SerializeField] public TMP_InputField textMesh;
 
-    float floatNumber;
+    decimal decNumber;
 
     public CanvasGroup warningText;
-    public float outputValue;
+    public decimal outputValue;
 
     public bool InputError;
 
@@ -24,21 +24,21 @@ public class ValueInputBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float.TryParse(textMesh.text, out floatNumber);
+        decimal.TryParse(textMesh.text, out decNumber);
 
-        if (floatNumber <= 0f)
+        if (decNumber <= 0)
         {
             InputError = true;
-            warningText.alpha = 1f;
+            warningText.alpha = 1;
             warningText.interactable = true;
         }
         else
         {
             InputError = false;
-            warningText.alpha = 0f;
+            warningText.alpha = 0;
             warningText.interactable = false;
         }
 
-        outputValue = floatNumber;
+        outputValue = decNumber;
     }
 }

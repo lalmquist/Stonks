@@ -10,8 +10,8 @@ public class SharesOwned : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
-    float possibleSell;
-    float netDifference;
+    decimal possibleSell;
+    decimal netDifference;
     public Number stockNumber;
 
 

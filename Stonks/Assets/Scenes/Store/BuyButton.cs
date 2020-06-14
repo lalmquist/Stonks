@@ -11,7 +11,7 @@ public class BuyButton : MonoBehaviour
 
     public FadingText fadeText;
 
-    public float price;
+    public decimal price;
     string priceToString;
 
     bool Done = false;
@@ -62,7 +62,7 @@ public class BuyButton : MonoBehaviour
             buttonText.color = new Color32(50, 50, 50, 255);
         }
 
-        if (Done == false & price > 0f)
+        if (Done == false & price > 0)
         {
             setPriceText();
             Done = true;

@@ -14,7 +14,7 @@ public class Circle : MonoBehaviour
     [SerializeField] float radius = 150;
     float x;
     float y;
-    public float multiplier = 1f;
+    public decimal multiplier = 1;
 
     [SerializeField] float startX = 100;
     [SerializeField] float startY = 100;
@@ -32,7 +32,7 @@ public class Circle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        angle = angle + (speed * Time.deltaTime * multiplier); //if you want to switch direction, use -= instead of +=
+        angle = angle + (speed * Time.deltaTime * (float)multiplier); //if you want to switch direction, use -= instead of +=
         x = Mathf.Cos(angle) * radius;
         y = Mathf.Sin(angle) * radius;
 

@@ -12,7 +12,7 @@ public class IPOBuyButton : MonoBehaviour
 
     public FadingText fadeText;
 
-    public float price;
+    public decimal price;
     string priceToString;
 
     bool Done = false;
@@ -78,8 +78,8 @@ public class IPOBuyButton : MonoBehaviour
         if (game_data.playerMoney > price && buyBool == false)
         {
             levelLoader.LoadNextLevel("CreateStock");
-            game_data.stockBuyPrice = price;
-            Debug.Log(price);
+            game_data.store.stockBuyPrice = price;
+            game_data.SaveJSON();
         }
     }
 

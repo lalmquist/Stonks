@@ -46,8 +46,9 @@ public class CreateStockComplete : MonoBehaviour
     {
         if (Enabled)
         {
-            game_data.playerMoney -= game_data.stockBuyPrice;
+            game_data.playerMoney = game_data.playerMoney - game_data.store.stockBuyPrice;
             Debug.Log(game_data.playerMoney);
+
 
             if (game_data.store.unlockStock2 == false)
             {

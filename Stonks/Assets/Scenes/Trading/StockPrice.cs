@@ -5,20 +5,19 @@ using TMPro;
 
 public class StockPrice : MonoBehaviour
 {
-    double interval;
-    decimal stock_price = 0;
-    decimal price_buffer;
+    float interval;
+    float stock_price = 0;
+    float price_buffer;
 
     public Number stockNumber;
 
     GameObject gameData;
     GameData game_data;
 
-    [SerializeField] double stockUpdateTimer = 10;
+    [SerializeField] float stockUpdateTimer = 10f;
     TextMeshProUGUI textMesh;
-    [SerializeField] decimal priceVariation = 10;
+    [SerializeField] float priceVariation = 10f;
 
-    float stockPriceFloat;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +52,7 @@ public class StockPrice : MonoBehaviour
 
         textMesh.text = "$" + stock_price.ToString("n2");
 
-        if (interval <= 0.0)
+        if (interval <= 0.0f)
         {
             timerEnded();
         }
@@ -79,12 +78,11 @@ public class StockPrice : MonoBehaviour
             stock_price = game_data.Stock4.price;
         }
 
-        stockPriceFloat = (float)stock_price + Random.Range((float)-priceVariation, (float)priceVariation);
-        stock_price = (decimal)stockPriceFloat;
+        stock_price = stock_price + Random.Range(-priceVariation, priceVariation);
 
         if (stock_price < 0)
         {
-            stock_price = (decimal)0.01;
+            stock_price = 0.01f;
         }
 
         if (stockNumber.StockNumber == 1)

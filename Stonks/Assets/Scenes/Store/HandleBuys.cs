@@ -29,10 +29,10 @@ public class HandleBuys : MonoBehaviour
         //Buy5.buyBool = game_data.store.unlockStock3;
         //Buy6.buyBool = game_data.store.unlockStock4;
 
-        Buy1.price = 1000;
-        Buy2.price = 250;
-        Buy3.price = 420;
-        Buy4.price = 1;
+        Buy1.price = 1000f;
+        Buy2.price = 250f;
+        Buy3.price = 420f;
+        Buy4.price = 1f;
         //Buy5.price = 1f;
         //Buy6.price = 1f;
     }
@@ -43,7 +43,7 @@ public class HandleBuys : MonoBehaviour
 
     }
 
-    public void UpdateStore(decimal price)
+    public void UpdateStore(float price)
     {
         game_data.store.quantityButton = Buy1.buyBool;
         game_data.store.sellAll = Buy2.buyBool;

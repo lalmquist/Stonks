@@ -8,12 +8,11 @@ public class GameData : MonoBehaviour
     string filepath;
     string saveJSON;
     string readData;
-    decimal moneybuffer = 1;
+    decimal moneybuffer = 1f;
     decimal pricebuffer;
     bool doneLoad = false;
 
     [SerializeField] public decimal playerMoney;
-    [SerializeField] public float test;
 
     [SerializeField] public Stock Stock1 = new Stock();
     [SerializeField] public Stock Stock2 = new Stock();

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 
 public class MaxBuyPossible : MonoBehaviour
 {
@@ -10,9 +9,9 @@ public class MaxBuyPossible : MonoBehaviour
     GameData game_data;
 
     public int maxbuy_int;
-    decimal maxbuy_decimal;
+    float maxbuy_float;
 
-    public decimal price;
+    public float price;
 
     TextMeshProUGUI textMesh;
 
@@ -28,9 +27,9 @@ public class MaxBuyPossible : MonoBehaviour
     void Update()
     {
 
-        maxbuy_decimal = game_data.playerMoney / price;
+        maxbuy_float = game_data.playerMoney / price;
 
-        maxbuy_int = Convert.ToInt32(maxbuy_decimal);
+        maxbuy_int = Mathf.FloorToInt(maxbuy_float);
 
         if (price == 0)
         {

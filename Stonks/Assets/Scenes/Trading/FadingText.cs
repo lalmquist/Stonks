@@ -13,15 +13,15 @@ public class FadingText : MonoBehaviour
     float math;
     float updateInterval = 0.1f;
     float updateTimer;
-    float alpha = 255f;
+    float alpha = 255;
     float red;
     float green;
     float blue;
     float xMovement;
     float yMovement;
 
-    [SerializeField] float startY = 585f;
-    [SerializeField] float startX = 161f;
+    [SerializeField] float startY = 585;
+    [SerializeField] float startX = 161;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +44,7 @@ public class FadingText : MonoBehaviour
             {
                 alpha = alpha - math;
                 textMesh.color = new Color32((byte)red, (byte)green, (byte)blue, (byte)alpha);
-                updateTimer = 0;
+                updateTimer = 0f;
             }
         }
         else
@@ -69,8 +69,8 @@ public class FadingText : MonoBehaviour
         green = 0;
         blue = 0;
 
-        xMovement = 1;
-        yMovement = -4;
+        xMovement = 1f;
+        yMovement = -4f;
 
         transform.position = new Vector3(startX, startY, 0);
         textMesh.text = "-$" + arg;
@@ -85,8 +85,8 @@ public class FadingText : MonoBehaviour
         green = 255;
         blue = 0;
 
-        xMovement = 1;
-        yMovement = 4;
+        xMovement = 1f;
+        yMovement = 4f;
 
         transform.position = new Vector3(startX, startY, 0);
         textMesh.text = "$" + arg;

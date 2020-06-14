@@ -80,7 +80,7 @@ public class StockPrice : MonoBehaviour
 
         stock_price = stock_price + Random.Range(-priceVariation, priceVariation);
 
-        if (stock_price < 0)
+        if (stock_price <= 0f)
         {
             stock_price = 0.01f;
         }

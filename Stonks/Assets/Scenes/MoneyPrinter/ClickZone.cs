@@ -68,7 +68,7 @@ public class ClickZone : MonoBehaviour
             moneyBonus = 1 * game_data.store.storeMultiplier;
         }
         
-        circle.multiplier -= 0.00025f;
+        circle.multiplier -= 0.00005f;
 
         if (Input.GetMouseButtonDown(0))
         {

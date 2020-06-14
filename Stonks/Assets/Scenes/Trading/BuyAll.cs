@@ -5,11 +5,11 @@ using TMPro;
 
 public class BuyAll : MonoBehaviour
 {
-    decimal price = 0;
-    decimal money = 0;
+    float price = 0;
+    float money = 0;
     int shares_owned = 0;
     string FadeTextArg;
-    decimal math;
+    float math;
 
     public FadingText fadeText;
     public Number stockNumber;

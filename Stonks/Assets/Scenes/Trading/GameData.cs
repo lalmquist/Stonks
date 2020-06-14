@@ -8,11 +8,11 @@ public class GameData : MonoBehaviour
     string filepath;
     string saveJSON;
     string readData;
-    decimal moneybuffer = 1f;
-    decimal pricebuffer;
+    float moneybuffer = 1f;
+    float pricebuffer;
     bool doneLoad = false;
 
-    [SerializeField] public decimal playerMoney;
+    [SerializeField] public float playerMoney;
 
     [SerializeField] public Stock Stock1 = new Stock();
     [SerializeField] public Stock Stock2 = new Stock();
@@ -27,8 +27,8 @@ public class GameData : MonoBehaviour
     [System.Serializable]
     public class Stock
     {
-        public decimal pricePaidForShares;
-        public decimal price;
+        public float pricePaidForShares;
+        public float price;
         public int sharesOwned;
         public string name;
     }
@@ -36,7 +36,7 @@ public class GameData : MonoBehaviour
     [System.Serializable]
     public class JSONFileData
     {
-        public decimal playerMoney;
+        public float playerMoney;
         public Stock stock1;
         public Stock stock2;
         public Stock stock3;
@@ -53,8 +53,8 @@ public class GameData : MonoBehaviour
         public bool unlockStock2;
         public bool unlockStock3;
         public bool unlockStock4;
-        public decimal storeMultiplier;
-        public decimal stockBuyPrice;
+        public float storeMultiplier;
+        public float stockBuyPrice;
     }
 
     public void SaveJSON()

@@ -12,7 +12,7 @@ public class IPOBuyButton : MonoBehaviour
 
     public FadingText fadeText;
 
-    public decimal price;
+    public float price;
     string priceToString;
 
     bool Done = false;

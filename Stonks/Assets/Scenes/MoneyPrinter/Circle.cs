@@ -14,7 +14,7 @@ public class Circle : MonoBehaviour
     [SerializeField] float radius = 150;
     float x;
     float y;
-    public float multiplier = 1f;
+    public float multiplier = 0f;
 
     [SerializeField] float startX = 100;
     [SerializeField] float startY = 100;

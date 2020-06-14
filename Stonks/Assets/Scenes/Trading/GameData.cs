@@ -55,6 +55,7 @@ public class GameData : MonoBehaviour
         public bool unlockStock4;
         public float storeMultiplier;
         public float stockBuyPrice;
+        public bool doubleMoneyPrinter;
     }
 
     public void SaveJSON()

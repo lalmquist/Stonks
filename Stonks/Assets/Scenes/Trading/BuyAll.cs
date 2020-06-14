@@ -83,7 +83,7 @@ public class BuyAll : MonoBehaviour
             shares_owned = game_data.Stock4.sharesOwned;
         }
 
-        money = money - (maxBuyPossible.maxbuy_int * price);
+        money -= (maxBuyPossible.maxbuy_int * price);
 
         math = (maxBuyPossible.maxbuy_int * price);
 
@@ -93,22 +93,22 @@ public class BuyAll : MonoBehaviour
 
         if (stockNumber.StockNumber == 1)
         {
-            game_data.Stock1.pricePaidForShares = 0;
+            game_data.Stock1.pricePaidForShares += (maxBuyPossible.maxbuy_int * price);
         }
         else if (stockNumber.StockNumber == 2)
         {
-            game_data.Stock2.pricePaidForShares = 0;
+            game_data.Stock2.pricePaidForShares += (maxBuyPossible.maxbuy_int * price);
         }
         else if (stockNumber.StockNumber == 3)
         {
-            game_data.Stock3.pricePaidForShares = 0;
+            game_data.Stock3.pricePaidForShares += (maxBuyPossible.maxbuy_int * price);
         }
         else if (stockNumber.StockNumber == 4)
         {
-            game_data.Stock4.pricePaidForShares = 0;
+            game_data.Stock4.pricePaidForShares += (maxBuyPossible.maxbuy_int * price);
         }
 
-        shares_owned = shares_owned + maxBuyPossible.maxbuy_int;
+        shares_owned += maxBuyPossible.maxbuy_int;
 
         if (stockNumber.StockNumber == 1)
         {

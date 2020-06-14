@@ -8,6 +8,8 @@ public class StockPrice : MonoBehaviour
     float interval;
     float stock_price = 0;
     float price_buffer;
+    float percentVariation;
+    float randSeed;
 
     public Number stockNumber;
 
@@ -16,7 +18,7 @@ public class StockPrice : MonoBehaviour
 
     [SerializeField] float stockUpdateTimer = 10f;
     TextMeshProUGUI textMesh;
-    [SerializeField] float priceVariation = 10f;
+    [SerializeField] float priceVariation;
 
 
     // Start is called before the first frame update
@@ -77,6 +79,12 @@ public class StockPrice : MonoBehaviour
         {
             stock_price = game_data.Stock4.price;
         }
+
+        randSeed = Random.Range(1, 25);
+
+        percentVariation = stock_price * randSeed / 100;
+
+        priceVariation = Random.Range(-percentVariation, percentVariation);
 
         stock_price = stock_price + Random.Range(-priceVariation, priceVariation);
 

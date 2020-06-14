@@ -15,6 +15,7 @@ public class HandleBuys : MonoBehaviour
     [SerializeField] public IPOBuyButton Buy4;
     //[SerializeField] public IPOBuyButton Buy5;
     //[SerializeField] public IPOBuyButton Buy6;
+    [SerializeField] public BuyButton Buy7;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class HandleBuys : MonoBehaviour
         Buy4.buyBool = game_data.store.unlockStock2;
         //Buy5.buyBool = game_data.store.unlockStock3;
         //Buy6.buyBool = game_data.store.unlockStock4;
+        Buy7.buyBool = game_data.store.doubleMoneyPrinter;
 
         Buy1.price = 1000f;
         Buy2.price = 250f;
@@ -35,6 +37,7 @@ public class HandleBuys : MonoBehaviour
         Buy4.price = 1f;
         //Buy5.price = 1f;
         //Buy6.price = 1f;
+        Buy7.price = 1000f;
     }
 
     // Update is called once per frame
@@ -48,9 +51,8 @@ public class HandleBuys : MonoBehaviour
         game_data.store.quantityButton = Buy1.buyBool;
         game_data.store.sellAll = Buy2.buyBool;
         game_data.store.buyAll = Buy3.buyBool;
-        game_data.store.unlockStock2 = Buy4.buyBool;
-        //game_data.store.unlockStock3 = Buy5.buyBool;
-        //game_data.store.unlockStock4 = Buy6.buyBool;
+
+        game_data.store.doubleMoneyPrinter = Buy7.buyBool;
 
         game_data.playerMoney = game_data.playerMoney - price;
     }

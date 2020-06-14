@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using TMPro;
 
 public class ClickZone : MonoBehaviour
@@ -47,7 +48,8 @@ public class ClickZone : MonoBehaviour
         game_data = gameData.GetComponent<GameData>();
         minSpeed = 0.5f;
         maxSpeed = 1.75f;
-        speedChange = 0.075f;
+        speedChange = 0.065f;
+        circle.multiplier = 0f;
 
         if (game_data.store.storeMultiplier < 1f)
         {
@@ -59,16 +61,29 @@ public class ClickZone : MonoBehaviour
     void Update()
     {
 
-        if (streak.streak > 0)
+        if (game_data.store.doubleMoneyPrinter)
         {
-            moneyBonus = (streak.streak * circle.multiplier * game_data.store.storeMultiplier / minSpeed);
+            game_data.store.storeMultiplier = 2f;
         }
         else
         {
-            moneyBonus = 1 * game_data.store.storeMultiplier;
+            game_data.store.storeMultiplier = 1f;
+        }
+
+        if (streak.streak > 0)
+        {
+            moneyBonus = ((streak.streak/2) * (circle.multiplier/2) * game_data.store.storeMultiplier / minSpeed);
+            if (moneyBonus < game_data.store.storeMultiplier)
+            {
+                moneyBonus = game_data.store.storeMultiplier;
+            }
+        }
+        else
+        {
+            moneyBonus = game_data.store.storeMultiplier;
         }
         
-        circle.multiplier -= 0.00005f;
+        circle.multiplier -= 0.00012f;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -80,7 +95,7 @@ public class ClickZone : MonoBehaviour
             }
             else if (inZone == false & otherZone.inZone == false)
             {
-                circle.multiplier -= speedChange;
+                circle.multiplier -= (speedChange * 2);
                 streak.streak = 0;
             }
         }

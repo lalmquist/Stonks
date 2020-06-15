@@ -85,6 +85,6 @@ public class BuyButton : MonoBehaviour
 
     void setPriceText()
     {
-        buyText.text += " $" + price;
+        buyText.text += " $" + price.ToString("n0");
     }
 }

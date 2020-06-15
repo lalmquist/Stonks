@@ -47,6 +47,7 @@ public class GameData : MonoBehaviour
     [System.Serializable]
     public class Store
     {
+        public bool hasStarted;
         public bool quantityButton;
         public bool sellAll;
         public bool buyAll;

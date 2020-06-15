@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class BackButton : MonoBehaviour
 {
+    GameObject gameData;
+    GameData game_data;
 
     [SerializeField] public LevelLoader levelLoader;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameData = GameObject.Find("GameData");
+        game_data = gameData.GetComponent<GameData>();
     }
 
     // Update is called once per frame
@@ -21,6 +24,14 @@ public class BackButton : MonoBehaviour
 
     public void execute()
     {
-        levelLoader.LoadNextLevel("Store");
+        if (game_data.store.hasStarted)
+        {
+            levelLoader.LoadNextLevel("Store");
+        }
+        else
+        {
+            levelLoader.LoadNextLevel("MainMenu");
+        }
+        
     }
 }

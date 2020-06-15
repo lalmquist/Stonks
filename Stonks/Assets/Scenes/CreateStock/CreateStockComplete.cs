@@ -46,11 +46,22 @@ public class CreateStockComplete : MonoBehaviour
     {
         if (Enabled)
         {
-            game_data.playerMoney = game_data.playerMoney - game_data.store.stockBuyPrice;
-            Debug.Log(game_data.playerMoney);
+            if (valueInputBox.outputValue < 0.01f)
+            {
+                valueInputBox.outputValue = 0.01f;
+            }
+
+            if (game_data.store.hasStarted == false)
+            {
+                game_data.store.stockBuyPrice = 0f;
+                game_data.Stock1.name = stockInputBox.outputValue;
+                game_data.Stock1.price = valueInputBox.outputValue;
+
+                game_data.store.hasStarted = true;
+            }
 
 
-            if (game_data.store.unlockStock2 == false)
+            else if (game_data.store.unlockStock2 == false)
             {
                 game_data.Stock2.name = stockInputBox.outputValue;
                 game_data.Stock2.price = valueInputBox.outputValue;
@@ -74,6 +85,7 @@ public class CreateStockComplete : MonoBehaviour
                 game_data.store.unlockStock4 = true;
             }
 
+            game_data.playerMoney -= game_data.store.stockBuyPrice;
             game_data.SaveJSON();
             LoadTradingScene();
         }

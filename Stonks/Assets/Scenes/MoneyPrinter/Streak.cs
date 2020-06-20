@@ -20,7 +20,7 @@ public class Streak : MonoBehaviour
     {
         if (streak > 0)
         {
-            textMesh.text = "Streak : x" + streak.ToString();
+            textMesh.text = "x" + streak.ToString();
         }
         else
         {

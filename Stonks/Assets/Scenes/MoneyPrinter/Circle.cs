@@ -7,7 +7,7 @@ public class Circle : MonoBehaviour
 {
 
     GameObject speedObject;
-    TextMeshProUGUI speedTMP;
+    //TextMeshProUGUI speedTMP;
 
     float angle = 0;
     float speed = (2 * Mathf.PI) / 1; //2*PI in degress is 360, so you get 5 seconds to complete a circle
@@ -23,7 +23,7 @@ public class Circle : MonoBehaviour
     void Start()
     {
         speedObject = GameObject.Find("Speed");
-        speedTMP = speedObject.GetComponent<TextMeshProUGUI>();
+        //speedTMP = speedObject.GetComponent<TextMeshProUGUI>();
 
         transform.position = new Vector3(startX, startY, 0);
         radius = 150;
@@ -39,6 +39,6 @@ public class Circle : MonoBehaviour
         //transform.position = new Vector3(x * Time.deltaTime * multiplier, y * Time.deltaTime * multiplier, 0);
         transform.position = new Vector3(x + startX, y + startY, 0);
 
-        speedTMP.text = "Speed : " + multiplier.ToString("n2");
+        //speedTMP.text = "Speed : " + multiplier.ToString("n2");
     }
 }

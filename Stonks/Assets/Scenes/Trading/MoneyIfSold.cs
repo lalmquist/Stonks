@@ -6,6 +6,7 @@ using TMPro;
 public class MoneyIfSold : MonoBehaviour
 {
     TextMeshProUGUI textMesh;
+    [SerializeField] public TextMeshProUGUI holdings;
 
     GameObject gameData;
     GameData game_data;
@@ -43,6 +44,8 @@ public class MoneyIfSold : MonoBehaviour
         {
             possibleSell = game_data.Stock4.price * game_data.Stock4.sharesOwned;
         }
+
+        holdings.text = possibleSell.ToString("n2");
 
         if (stockNumber.StockNumber == 1)
         {

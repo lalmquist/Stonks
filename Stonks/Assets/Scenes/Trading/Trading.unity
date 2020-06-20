@@ -8946,6 +8946,7 @@ MonoBehaviour:
     sharesOwned: 0
     name: 
   store:
+    hasStarted: 0
     quantityButton: 0
     sellAll: 0
     buyAll: 0
@@ -8954,6 +8955,7 @@ MonoBehaviour:
     unlockStock4: 0
     storeMultiplier: 0
     stockBuyPrice: 0
+    doubleMoneyPrinter: 0
   SaveData:
     playerMoney: 0
     stock1:
@@ -8977,6 +8979,7 @@ MonoBehaviour:
       sharesOwned: 0
       name: 
     store:
+      hasStarted: 0
       quantityButton: 0
       sellAll: 0
       buyAll: 0
@@ -8985,6 +8988,7 @@ MonoBehaviour:
       unlockStock4: 0
       storeMultiplier: 0
       stockBuyPrice: 0
+      doubleMoneyPrinter: 0
   LoadData:
     playerMoney: 0
     stock1:
@@ -9008,6 +9012,7 @@ MonoBehaviour:
       sharesOwned: 0
       name: 
     store:
+      hasStarted: 0
       quantityButton: 0
       sellAll: 0
       buyAll: 0
@@ -9016,6 +9021,7 @@ MonoBehaviour:
       unlockStock4: 0
       storeMultiplier: 0
       stockBuyPrice: 0
+      doubleMoneyPrinter: 0
 --- !u!4 &1896277418
 Transform:
   m_ObjectHideFlags: 0

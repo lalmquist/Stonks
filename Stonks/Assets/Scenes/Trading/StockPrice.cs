@@ -10,8 +10,8 @@ public class StockPrice : MonoBehaviour
     float stock_price = 0;
     float price_buffer;
     float percentVariation;
+    float finalVariation;
     float randSeed;
-    bool ONS;
 
     public Number stockNumber;
 
@@ -58,11 +58,7 @@ public class StockPrice : MonoBehaviour
 
         if (interval <= 0.0f)
         {
-            if (ONS == false)
-            {
-                ONS = true;
-                timerEnded();
-            }
+            timerEnded();
         }
     }
 
@@ -96,20 +92,22 @@ public class StockPrice : MonoBehaviour
 
         percentVariation = (stock_price * randSeed) / 100;
 
-        Debug.Log("percent variation" + percentVariation);
-        //Debug.Log("stock price" + stock_price);
+        priceVariation = UnityEngine.Random.Range(-percentVariation, percentVariation);
 
-        //priceVariation = UnityEngine.Random.Range(-percentVariation, percentVariation);
-        priceVariation = percentVariation;
+        finalVariation = UnityEngine.Random.Range(-priceVariation, priceVariation);
 
-        //stock_price += UnityEngine.Random.Range(-priceVariation, priceVariation);
-        stock_price += priceVariation;
+        if (finalVariation < 0.01f & finalVariation > 0f)
+        {
+            finalVariation = 0.01f;
+        }
+        else if (finalVariation > -0.01f & finalVariation < 0f)
+        {
+            finalVariation = -0.01f;
+        }
 
-        //Debug.Log(stock_price);
+        stock_price += finalVariation;
 
-        stock_price = (Mathf.Round(stock_price * 10f)) / 10f;
-        
-        //Debug.Log(stock_price);
+        stock_price = (Mathf.Round(stock_price * 100f)) / 100f;
 
         if (stock_price <= 0.01f)
         {

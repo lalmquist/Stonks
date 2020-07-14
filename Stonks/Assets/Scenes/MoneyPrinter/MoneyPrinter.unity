@@ -388,8 +388,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 497, y: -943}
-  m_SizeDelta: {x: 78.8, y: 44.8}
+  m_AnchoredPosition: {x: 350.83, y: -837}
+  m_SizeDelta: {x: 350, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663289466
 MonoBehaviour:
@@ -582,8 +582,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1029,8 +1029,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 497, y: -883}
-  m_SizeDelta: {x: 78.8, y: 44.8}
+  m_AnchoredPosition: {x: 350.83, y: -584}
+  m_SizeDelta: {x: 350, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1081853641
 MonoBehaviour:
@@ -1690,8 +1690,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 69
+  m_fontSizeBase: 69
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2033,38 +2033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b8fa108cde76f44baf8e797583fdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle: {fileID: 0}
-  fill: {fileID: 4236768}
-  slider: {fileID: 2075396668}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 0.97973365, g: 0.91005456, b: 0, a: 1}
-    key1: {r: 1, g: 0.6744842, b: 0, a: 1}
-    key2: {r: 1, g: 0.1784283, b: 0, a: 0}
-    key3: {r: 0.9719956, g: 1, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 32901
-    ctime2: 65535
-    ctime3: 65535
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
 --- !u!1 &2087111529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,6 +2045,8 @@ GameObject:
   - component: {fileID: 2087111533}
   - component: {fileID: 2087111532}
   - component: {fileID: 2087111531}
+  - component: {fileID: 2087111534}
+  - component: {fileID: 2087111535}
   m_Layer: 5
   m_Name: Printer
   m_TagString: Untagged
@@ -2128,7 +2098,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 45
 --- !u!114 &2087111532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2166,6 +2136,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087111529}
   m_CullTransparentMesh: 0
+--- !u!114 &2087111534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087111529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c614fcd34caa34f5ea22dd36a51286fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  streak: {fileID: 2143071023}
+  inZone: 0
+  multiplier: 0
+  moneyBonus: 0
+--- !u!50 &2087111535
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087111529}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2143071019
 GameObject:
   m_ObjectHideFlags: 0

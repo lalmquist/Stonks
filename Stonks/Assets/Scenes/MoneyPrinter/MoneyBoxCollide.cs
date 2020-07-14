@@ -17,8 +17,7 @@ public class MoneyBoxCollide : MonoBehaviour
 
     public bool inZone;
 
-    [SerializeField] public Circle circle;
-    [SerializeField] public ClickZone otherZone;
+    [SerializeField] public float multiplier;
 
     float minSpeed;
     float maxSpeed;
@@ -49,7 +48,7 @@ public class MoneyBoxCollide : MonoBehaviour
         minSpeed = 0.5f;
         maxSpeed = 1.75f;
         speedChange = 0.065f;
-        circle.multiplier = 0f;
+        multiplier = 0f;
 
         if (game_data.store.storeMultiplier < 1f)
         {
@@ -72,7 +71,7 @@ public class MoneyBoxCollide : MonoBehaviour
 
         if (streak.streak > 0)
         {
-            moneyBonus = ((streak.streak / 2) * (circle.multiplier / 2) * game_data.store.storeMultiplier / minSpeed);
+            moneyBonus = ((streak.streak / 2) * (multiplier / 2) * game_data.store.storeMultiplier / minSpeed);
             if (moneyBonus < game_data.store.storeMultiplier)
             {
                 moneyBonus = game_data.store.storeMultiplier;
@@ -83,32 +82,32 @@ public class MoneyBoxCollide : MonoBehaviour
             moneyBonus = game_data.store.storeMultiplier;
         }
 
-        circle.multiplier -= 0.00002f;
+        multiplier -= 0.00002f;
 
         if (Input.GetMouseButtonDown(0))
         {
             if (inZone)
             {
                 streak.streak += 1;
-                circle.multiplier += speedChange;
+                multiplier += speedChange;
                 game_data.playerMoney += moneyBonus;
             }
-            else if (inZone == false & otherZone.inZone == false)
+            else if (inZone == false)
             {
-                circle.multiplier -= (speedChange * 2);
+                multiplier -= (speedChange * 2);
                 streak.streak = 0;
             }
         }
 
 
         // speed limits
-        if (circle.multiplier < minSpeed)
+        if (multiplier < minSpeed)
         {
-            circle.multiplier = minSpeed;
+            multiplier = minSpeed;
         }
-        else if (circle.multiplier > maxSpeed)
+        else if (multiplier > maxSpeed)
         {
-            circle.multiplier = maxSpeed;
+            multiplier = maxSpeed;
         }
 
         BonusMoneyTMP.text = moneyBonus.ToString("n2");

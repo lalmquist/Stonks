@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SpeedBar : MonoBehaviour
-{
+{/*
     [SerializeField] public Circle circle;
     [SerializeField] public Image fill;
     public Slider slider;
@@ -21,5 +21,5 @@ public class SpeedBar : MonoBehaviour
     {
         slider.value = circle.multiplier;
         fill.color = gradient.Evaluate(slider.normalizedValue);
-    }
+    }*/
 }

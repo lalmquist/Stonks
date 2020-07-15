@@ -7,6 +7,7 @@ public class deployMoneyBox : MonoBehaviour
     // Start is called before the first frame update
     public GameObject moneyBoxPrefab;
     public GameObject canvasParent;
+    public float deploySpeed;
     public float respawnTime = 10.0f;
     private Vector2 screenBounds;
     
@@ -20,7 +21,7 @@ public class deployMoneyBox : MonoBehaviour
     private void spawnBox()
     {
         GameObject a = Instantiate(moneyBoxPrefab) as GameObject;
-        a.transform.parent = canvasParent.transform;
+        a.transform.SetParent(canvasParent.transform, false);
         a.transform.position = new Vector2(-145, 375);
     }
 

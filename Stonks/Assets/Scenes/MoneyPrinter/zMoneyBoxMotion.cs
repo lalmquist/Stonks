@@ -6,7 +6,7 @@ using TMPro;
 
 public class zMoneyBoxMotion : MonoBehaviour
 { 
-    float speed = 100.0f;
+    [SerializeField] public float speed = 100.0f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     bool inZone;
@@ -39,6 +39,8 @@ public class zMoneyBoxMotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rb.velocity = new Vector2(0, -speed);
+
         if (transform.position.y < -screenBounds.y * 2)
         {             
             Destroy(this.gameObject);

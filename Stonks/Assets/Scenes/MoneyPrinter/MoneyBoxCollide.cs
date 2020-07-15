@@ -13,21 +13,31 @@ public class MoneyBoxCollide : MonoBehaviour
     GameObject gameData;
     GameData game_data;
 
+    public Animator animator;
+
     [SerializeField] public Streak streak;
 
     public bool inZone;
 
-    [SerializeField] public float multiplier;
+    [SerializeField] public deployMoneyBox deploy;
+
+    public float conveyorSpeed = 100.0f;
 
     float minSpeed;
     float maxSpeed;
     float speedChange;
     public float moneyBonus;
 
+    float minRespawn = 5f;
+    float maxRespawn = 0.4f;
+
+    string ColliderName;
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
 
         inZone = true;
+        ColliderName = collider.name;
 
     }
 
@@ -45,10 +55,8 @@ public class MoneyBoxCollide : MonoBehaviour
 
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
-        minSpeed = 0.5f;
-        maxSpeed = 1.75f;
-        speedChange = 0.065f;
-        multiplier = 0f;
+        minSpeed = 50f;
+        maxSpeed = 600f;
 
         if (game_data.store.storeMultiplier < 1f)
         {
@@ -71,7 +79,7 @@ public class MoneyBoxCollide : MonoBehaviour
 
         if (streak.streak > 0)
         {
-            moneyBonus = ((streak.streak / 2) * (multiplier / 2) * game_data.store.storeMultiplier / minSpeed);
+            moneyBonus = ((streak.streak / 2) * game_data.store.storeMultiplier / minSpeed);
             if (moneyBonus < game_data.store.storeMultiplier)
             {
                 moneyBonus = game_data.store.storeMultiplier;
@@ -82,32 +90,55 @@ public class MoneyBoxCollide : MonoBehaviour
             moneyBonus = game_data.store.storeMultiplier;
         }
 
-        multiplier -= 0.00002f;
+        animator.SetBool("Print", false);
 
         if (Input.GetMouseButtonDown(0))
         {
+
             if (inZone)
             {
-                streak.streak += 1;
-                multiplier += speedChange;
-                game_data.playerMoney += moneyBonus;
+
+                if (ColliderName == "BombBox(Clone)")
+                {
+                    Debug.Log("Bomb");
+                }
+                else
+                {
+                    streak.streak += 1;
+                    game_data.playerMoney += moneyBonus;
+                    animator.SetBool("Print", true);
+                    conveyorSpeed += 10f;
+                    deploy.respawnTime -= 0.3f;
+                }
+
             }
             else if (inZone == false)
             {
-                multiplier -= (speedChange * 2);
                 streak.streak = 0;
+                conveyorSpeed -= 50f;
+                deploy.respawnTime += 0.2f;
             }
-        }
 
+        }
 
         // speed limits
-        if (multiplier < minSpeed)
+        if (conveyorSpeed < minSpeed)
         {
-            multiplier = minSpeed;
+            conveyorSpeed = minSpeed;
         }
-        else if (multiplier > maxSpeed)
+        else if (conveyorSpeed > maxSpeed)
         {
-            multiplier = maxSpeed;
+            conveyorSpeed = maxSpeed;
+        }
+
+        // respawn limits
+        if (deploy.respawnTime > minRespawn)
+        {
+            deploy.respawnTime = minRespawn;
+        }
+        else if (deploy.respawnTime < maxRespawn)
+        {
+            deploy.respawnTime = maxRespawn;
         }
 
         BonusMoneyTMP.text = moneyBonus.ToString("n2");

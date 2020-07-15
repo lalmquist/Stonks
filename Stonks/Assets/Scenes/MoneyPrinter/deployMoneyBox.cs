@@ -6,10 +6,11 @@ public class deployMoneyBox : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject moneyBoxPrefab;
+    public GameObject bombPrefab;
     public GameObject canvasParent;
-    public float deploySpeed;
     public float respawnTime = 10.0f;
     private Vector2 screenBounds;
+    int rand;
     
 
     void Start()
@@ -25,12 +26,28 @@ public class deployMoneyBox : MonoBehaviour
         a.transform.position = new Vector2(-145, 375);
     }
 
+    private void spawnBomb()
+    {
+        GameObject a = Instantiate(bombPrefab) as GameObject;
+        a.transform.SetParent(canvasParent.transform, false);
+        a.transform.position = new Vector2(-145, 375);
+    }
+
     IEnumerator moneyBoxSpawn()
     {
         while (true)
         {
             yield return new WaitForSeconds(respawnTime);
-            spawnBox();
+
+            rand = Random.Range(1, 100);
+
+            if (rand < 25)
+            {
+                spawnBomb();
+            } else
+            {
+                spawnBox();
+            }
         }
     }
 

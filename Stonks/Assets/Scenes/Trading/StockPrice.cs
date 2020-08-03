@@ -12,6 +12,7 @@ public class StockPrice : MonoBehaviour
     float percentVariation;
     float finalVariation;
     float randSeed;
+    bool calculatedNew;
 
     public Number stockNumber;
 
@@ -58,7 +59,12 @@ public class StockPrice : MonoBehaviour
 
         if (interval <= 0.0f)
         {
+            updatePrice();
+        }
+        else if (interval <= stockUpdateTimer/2 && calculatedNew == false)
+        {
             timerEnded();
+            calculatedNew = true;
         }
     }
 
@@ -68,15 +74,15 @@ public class StockPrice : MonoBehaviour
         {
             stock_price = game_data.Stock1.price;
         }
-        else if(stockNumber.StockNumber == 2)
+        else if (stockNumber.StockNumber == 2)
         {
             stock_price = game_data.Stock2.price;
         }
-        else if(stockNumber.StockNumber == 3)
+        else if (stockNumber.StockNumber == 3)
         {
             stock_price = game_data.Stock3.price;
         }
-        else if(stockNumber.StockNumber == 4)
+        else if (stockNumber.StockNumber == 4)
         {
             stock_price = game_data.Stock4.price;
         }
@@ -105,6 +111,18 @@ public class StockPrice : MonoBehaviour
             finalVariation = -0.01f;
         }
 
+        if (finalVariation > 0.0f)
+        {
+            Debug.Log("green");
+        }
+        else
+        {
+            Debug.Log("red");
+        }
+    }
+
+    void updatePrice()
+    { 
         stock_price += finalVariation;
 
         stock_price = (Mathf.Round(stock_price * 100f)) / 100f;
@@ -133,6 +151,7 @@ public class StockPrice : MonoBehaviour
 
 
         interval = stockUpdateTimer;
+        calculatedNew = false;
 
         if (stock_price >= price_buffer)
         {

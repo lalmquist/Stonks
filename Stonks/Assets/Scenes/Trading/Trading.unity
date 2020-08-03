@@ -2833,7 +2833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a4224338d2bf941a01b8237d8f0dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdings: {fileID: 0}
+  holdings: {fileID: 750416175}
   stockNumber: {fileID: 1304991030}
 --- !u!114 &750416175
 MonoBehaviour:
@@ -10879,7 +10879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a4224338d2bf941a01b8237d8f0dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdings: {fileID: 0}
+  holdings: {fileID: 2104484975}
   stockNumber: {fileID: 1034411279}
 --- !u!114 &2104484975
 MonoBehaviour:
@@ -12097,7 +12097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a4224338d2bf941a01b8237d8f0dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdings: {fileID: 0}
+  holdings: {fileID: 549206723516975223}
   stockNumber: {fileID: 3943694616321407576}
 --- !u!222 &3117421920725337101
 CanvasRenderer:

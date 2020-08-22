@@ -79,7 +79,7 @@ public class MoneyBoxCollide : MonoBehaviour
 
         if (streak.streak > 0)
         {
-            moneyBonus = ((streak.streak / 2) * game_data.store.storeMultiplier / minSpeed);
+            moneyBonus = ((streak.streak / 2) * game_data.store.storeMultiplier);
             if (moneyBonus < game_data.store.storeMultiplier)
             {
                 moneyBonus = game_data.store.storeMultiplier;
@@ -100,7 +100,9 @@ public class MoneyBoxCollide : MonoBehaviour
 
                 if (ColliderName == "BombBox(Clone)")
                 {
-                    Debug.Log("Bomb");
+                    streak.streak = 0;
+                    conveyorSpeed = minSpeed;
+                    deploy.respawnTime = minRespawn/2;
                 }
                 else
                 {

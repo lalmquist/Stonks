@@ -20,8 +20,8 @@ public class FadingText : MonoBehaviour
     float xMovement;
     float yMovement;
 
-    [SerializeField] float startY = 585;
-    [SerializeField] float startX = 161;
+    [SerializeField] float startY = 906;
+    [SerializeField] float startX = 33;
 
     // Start is called before the first frame update
     void Start()

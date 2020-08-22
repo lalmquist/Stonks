@@ -20,8 +20,11 @@ public class StockPrice : MonoBehaviour
     GameData game_data;
 
     [SerializeField] float stockUpdateTimer = 10f;
+    float newInterval;
     TextMeshProUGUI textMesh;
     [SerializeField] float priceVariation;
+
+    [SerializeField] TextMeshProUGUI changeIndicator;
 
 
     // Start is called before the first frame update
@@ -30,7 +33,9 @@ public class StockPrice : MonoBehaviour
         textMesh = GetComponent<TextMeshProUGUI>();
         gameData = GameObject.Find("GameData");
         game_data = gameData.GetComponent<GameData>();
-        interval = stockUpdateTimer;
+        newInterval = UnityEngine.Random.Range(stockUpdateTimer/2, stockUpdateTimer);
+        interval = newInterval;
+        changeIndicator.text = "";
     }
 
     // Update is called once per frame
@@ -61,7 +66,7 @@ public class StockPrice : MonoBehaviour
         {
             updatePrice();
         }
-        else if (interval <= stockUpdateTimer/2 && calculatedNew == false)
+        else if (interval <= newInterval/ 2 && calculatedNew == false)
         {
             timerEnded();
             calculatedNew = true;
@@ -113,11 +118,13 @@ public class StockPrice : MonoBehaviour
 
         if (finalVariation > 0.0f)
         {
-            Debug.Log("green");
+            changeIndicator.text = "green";
+            changeIndicator.color = new Color32(0, 255, 0, 255);
         }
         else
         {
-            Debug.Log("red");
+            changeIndicator.text = "red";
+            changeIndicator.color = new Color32(255, 0, 0, 255);
         }
     }
 
@@ -150,7 +157,7 @@ public class StockPrice : MonoBehaviour
         }
 
 
-        interval = stockUpdateTimer;
+        interval = newInterval;
         calculatedNew = false;
 
         if (stock_price >= price_buffer)
@@ -163,6 +170,8 @@ public class StockPrice : MonoBehaviour
         }
 
         price_buffer = stock_price;
+
+        changeIndicator.text = "";
 
     }
 }
